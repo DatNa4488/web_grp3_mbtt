@@ -1,49 +1,54 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import RentalHeatmap from '@/components/Map/RentalHeatmap';
-import VisualSearch from '@/components/Search/VisualSearch';
-import { Filter, Layers, Map as MapIcon, ChevronDown, Satellite } from 'lucide-react';
-import { Listing, getDistricts } from '@/app/data/mockListings';
+import { Filter, Layers, Map as MapIcon, ChevronDown, Satellite, Loader2 } from 'lucide-react';
+import { fetchDistricts, District, Listing } from '@/lib/api';
 
 export default function MapPage() {
   const [district, setDistrict] = useState<string>('');
-  const [priceRange, setPriceRange] = useState<number>(100);
+  const [priceRange, setPriceRange] = useState<number>(200);
   const [listingType, setListingType] = useState<Listing['type'] | undefined>(undefined);
+  const [districts, setDistricts] = useState<District[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const districts = getDistricts();
+  useEffect(() => {
+    fetchDistricts().then(data => {
+      setDistricts(data);
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <div className="flex h-[calc(100vh-80px)] mt-20 relative overflow-hidden font-sans">
 
-      {/* Sidebar Filters - Glass Panel */}
-      <div className="w-96 glass-panel border-r-0 border-r-white/10 flex flex-col gap-6 p-6 overflow-y-auto z-20 backdrop-blur-2xl bg-[#020617]/80">
+      {/* Sidebar Filters */}
+      <div className="w-96 glass-panel border-r-0 flex flex-col gap-6 p-6 overflow-y-auto z-20 backdrop-blur-2xl bg-[#020617]/80">
         <h2 className="text-xl font-bold flex items-center gap-2 text-cyan-400">
           <Filter className="w-5 h-5" />
           Bộ Lọc Thông Minh
+          {loading && <Loader2 className="w-4 h-4 animate-spin text-gray-400" />}
         </h2>
 
-        {/* Visual Search Widget */}
-        <VisualSearch />
 
         <div className="space-y-6">
           <div className="space-y-3">
             <div className="flex justify-between items-center text-sm">
               <span className="text-gray-300">Khoảng giá tối đa</span>
-              <span className="text-cyan-400 font-bold">{priceRange} Triệu+</span>
+              <span className="text-cyan-400 font-bold">{priceRange} Triệu</span>
             </div>
             <input
               type="range"
-              min="5"
+              min="10"
               max="300"
-              step="5"
+              step="10"
               value={priceRange}
               onChange={(e) => setPriceRange(Number(e.target.value))}
-              className="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyan-500 hover:accent-cyan-400"
+              className="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyan-500"
             />
             <div className="flex justify-between text-xs text-gray-500">
-              <span>5 triệu</span>
-              <span>300 triệu+</span>
+              <span>10 triệu</span>
+              <span>300 triệu</span>
             </div>
           </div>
 
@@ -57,7 +62,7 @@ export default function MapPage() {
               >
                 <option value="">Toàn Thành Phố</option>
                 {districts.map(d => (
-                  <option key={d} value={d}>{d}</option>
+                  <option key={d.id} value={d.name}>{d.name} (~{d.avgPrice}tr)</option>
                 ))}
               </select>
               <ChevronDown className="absolute right-3 top-3.5 w-4 h-4 text-gray-500 pointer-events-none" />
@@ -77,8 +82,8 @@ export default function MapPage() {
                   key={type.id}
                   onClick={() => setListingType(listingType === type.id ? undefined : type.id as Listing['type'])}
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${listingType === type.id
-                      ? 'bg-cyan-500/20 border-cyan-500 text-cyan-400'
-                      : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'
+                    ? 'bg-cyan-500/20 border-cyan-500 text-cyan-400'
+                    : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'
                     }`}
                 >
                   {type.label}
@@ -90,23 +95,14 @@ export default function MapPage() {
           <div className="space-y-4 pt-4 border-t border-white/10">
             <label className="text-sm font-semibold text-gray-300 flex items-center gap-2">
               <Layers className="w-4 h-4 text-purple-400" />
-              Lớp Dữ Liệu Môi Trường
+              Data Source
             </label>
-            <div className="space-y-3">
-              {[
-                { label: 'Trường học / Đại học', color: 'text-blue-400' },
-                { label: 'Tòa nhà Văn phòng', color: 'text-indigo-400' },
-                { label: 'Khu dân cư mật độ cao', color: 'text-pink-400' },
-                { label: 'Đối thủ cạnh tranh', color: 'text-red-400' }
-              ].map((item, idx) => (
-                <label key={idx} className="flex items-center gap-3 text-sm text-gray-400 hover:text-white cursor-pointer group select-none">
-                  <div className="relative flex items-center">
-                    <input type="checkbox" className="peer w-5 h-5 appearance-none border border-gray-600 rounded bg-transparent checked:bg-cyan-600 checked:border-cyan-500 transition-all" defaultChecked={idx === 0} />
-                    <svg className="absolute w-3.5 h-3.5 text-white left-1 opacity-0 peer-checked:opacity-100 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span className="group-hover:translate-x-1 transition-transform">{item.label}</span>
-                </label>
-              ))}
+            <div className="glass-card p-3 rounded-lg text-xs text-gray-400">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="text-green-400 font-bold">n8n API Connected</span>
+              </div>
+              <p>Dữ liệu real-time từ Backend n8n</p>
             </div>
           </div>
         </div>
@@ -115,7 +111,7 @@ export default function MapPage() {
       {/* Main Map Area */}
       <div className="flex-1 relative bg-slate-900 border-l border-white/10">
         <RentalHeatmap
-          filterDistrict={district}
+          filterDistrict={district || undefined}
           filterType={listingType}
           filterPriceMax={priceRange}
         />

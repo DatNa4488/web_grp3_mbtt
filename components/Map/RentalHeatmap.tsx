@@ -3,25 +3,13 @@
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
-import { mockListings, getPriceColor, getPotentialColor, getDistrictStats, Listing } from '@/app/data/mockListings';
+import { fetchListings, Listing } from '@/lib/api';
 
 // Dynamic import for Leaflet components
-const MapContainer = dynamic(
-  () => import('react-leaflet').then((mod) => mod.MapContainer),
-  { ssr: false }
-);
-const TileLayer = dynamic(
-  () => import('react-leaflet').then((mod) => mod.TileLayer),
-  { ssr: false }
-);
-const CircleMarker = dynamic(
-  () => import('react-leaflet').then((mod) => mod.CircleMarker),
-  { ssr: false }
-);
-const Popup = dynamic(
-  () => import('react-leaflet').then((mod) => mod.Popup),
-  { ssr: false }
-);
+const MapContainer = dynamic(() => import('react-leaflet').then((mod) => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import('react-leaflet').then((mod) => mod.TileLayer), { ssr: false });
+const CircleMarker = dynamic(() => import('react-leaflet').then((mod) => mod.CircleMarker), { ssr: false });
+const Popup = dynamic(() => import('react-leaflet').then((mod) => mod.Popup), { ssr: false });
 
 type HeatmapMode = 'price' | 'potential';
 
@@ -31,47 +19,59 @@ interface Props {
   filterPriceMax?: number;
 }
 
+const getPriceColor = (price: number): string => {
+  if (price > 100) return '#ef4444';
+  if (price > 50) return '#f59e0b';
+  if (price > 25) return '#22c55e';
+  return '#3b82f6';
+};
+
+const getPotentialColor = (score: number): string => {
+  if (score >= 85) return '#22d3ee';
+  if (score >= 70) return '#60a5fa';
+  if (score >= 50) return '#818cf8';
+  return '#a78bfa';
+};
+
 export default function RentalHeatmap({ filterDistrict, filterType, filterPriceMax }: Props) {
   const [isClient, setIsClient] = useState(false);
   const [mode, setMode] = useState<HeatmapMode>('price');
-  const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
+  const [listings, setListings] = useState<Listing[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
-  }, []);
+    // Fetch data từ n8n API
+    fetchListings({
+      district: filterDistrict,
+      type: filterType,
+      maxPrice: filterPriceMax,
+      limit: 200
+    }).then(data => {
+      setListings(data);
+      setLoading(false);
+    });
+  }, [filterDistrict, filterType, filterPriceMax]);
 
   if (!isClient) {
     return (
       <div className="w-full h-full bg-slate-900 animate-pulse rounded-xl flex items-center justify-center text-cyan-500">
         <div className="text-center">
           <div className="text-xl font-bold mb-2">JFinder Intelligence</div>
-          <div className="text-sm text-gray-400">Loading {mockListings.length.toLocaleString()} listings...</div>
+          <div className="text-sm text-gray-400">Loading map...</div>
         </div>
       </div>
     );
   }
 
-  // Filter data
-  let filteredListings = mockListings;
-  if (filterDistrict) {
-    filteredListings = filteredListings.filter(l => l.district === filterDistrict);
-  }
-  if (filterType) {
-    filteredListings = filteredListings.filter(l => l.type === filterType);
-  }
-  if (filterPriceMax) {
-    filteredListings = filteredListings.filter(l => l.price <= filterPriceMax);
-  }
-
   const getColor = (listing: Listing) => {
     return mode === 'price'
       ? getPriceColor(listing.price)
-      : getPotentialColor(listing.ai.potentialScore);
+      : getPotentialColor(listing.ai?.potentialScore || 50);
   };
 
   const getRadius = (listing: Listing) => {
-    // Kích thước dựa trên views hoặc potential
-    const base = mode === 'price' ? listing.views / 500 : listing.ai.potentialScore / 10;
+    const base = mode === 'price' ? listing.views / 200 : (listing.ai?.potentialScore || 50) / 10;
     return Math.max(5, Math.min(15, base));
   };
 
@@ -81,18 +81,14 @@ export default function RentalHeatmap({ filterDistrict, filterType, filterPriceM
       <div className="absolute top-4 left-4 z-[1000] flex gap-2">
         <button
           onClick={() => setMode('price')}
-          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${mode === 'price'
-              ? 'bg-cyan-500 text-white'
-              : 'bg-white/10 text-gray-300 hover:bg-white/20'
+          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${mode === 'price' ? 'bg-cyan-500 text-white' : 'bg-white/10 text-gray-300 hover:bg-white/20'
             }`}
         >
           💰 Price Map
         </button>
         <button
           onClick={() => setMode('potential')}
-          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${mode === 'potential'
-              ? 'bg-purple-500 text-white'
-              : 'bg-white/10 text-gray-300 hover:bg-white/20'
+          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${mode === 'potential' ? 'bg-purple-500 text-white' : 'bg-white/10 text-gray-300 hover:bg-white/20'
             }`}
         >
           🎯 Potential Map
@@ -102,7 +98,7 @@ export default function RentalHeatmap({ filterDistrict, filterType, filterPriceM
       {/* Stats Badge */}
       <div className="absolute top-4 right-20 z-[1000] glass-panel px-3 py-1.5 rounded-full">
         <span className="text-xs text-cyan-400 font-bold">
-          {filteredListings.length.toLocaleString()} listings
+          {loading ? 'Loading...' : `${listings.length} listings (n8n API)`}
         </span>
       </div>
 
@@ -113,14 +109,13 @@ export default function RentalHeatmap({ filterDistrict, filterType, filterPriceM
         style={{ height: '100%', width: '100%', background: '#020617' }}
         className="z-0"
       >
-        {/* CARTODB DARK MATTER TILES */}
         {/* @ts-ignore */}
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          attribution='&copy; <a href="https://carto.com/">CARTO</a>'
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
         />
 
-        {filteredListings.map((listing) => (
+        {listings.map((listing) => (
           // @ts-ignore
           <CircleMarker
             key={listing.id}
@@ -132,9 +127,6 @@ export default function RentalHeatmap({ filterDistrict, filterType, filterPriceM
               weight: 1
             }}
             radius={getRadius(listing)}
-            eventHandlers={{
-              click: () => setSelectedListing(listing)
-            }}
           >
             {/* @ts-ignore */}
             <Popup>
@@ -151,20 +143,11 @@ export default function RentalHeatmap({ filterDistrict, filterType, filterPriceM
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">AI Score:</span>
-                    <span className="font-bold text-purple-400">{listing.ai.potentialScore}/100</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Nhãn giá:</span>
-                    <span className={`font-bold ${listing.ai.priceLabel === 'cheap' ? 'text-green-400' :
-                        listing.ai.priceLabel === 'fair' ? 'text-yellow-400' : 'text-red-400'
-                      }`}>
-                      {listing.ai.priceLabel === 'cheap' ? 'Rẻ' :
-                        listing.ai.priceLabel === 'fair' ? 'Hợp lý' : 'Đắt'}
-                    </span>
+                    <span className="font-bold text-purple-400">{listing.ai?.potentialScore || 'N/A'}/100</span>
                   </div>
                 </div>
                 <div className="mt-2 pt-2 border-t border-white/10 text-xs text-gray-400">
-                  📍 {listing.address}
+                  📍 {listing.district}
                 </div>
               </div>
             </Popup>
@@ -195,7 +178,7 @@ export default function RentalHeatmap({ filterDistrict, filterType, filterPriceM
         ) : (
           <>
             <div className="flex items-center gap-2 text-xs text-gray-300">
-              <div className="w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]"></div> Rất cao (&gt;85)
+              <div className="w-4 h-4 rounded-full bg-cyan-400"></div> Rất cao (&gt;85)
             </div>
             <div className="flex items-center gap-2 text-xs text-gray-300">
               <div className="w-4 h-4 rounded-full bg-blue-400"></div> Cao (70-85)
