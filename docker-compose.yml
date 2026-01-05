@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # n8n - Backend API & Automation
+  # 1. BACKEND API: n8n Automation
   n8n:
     image: n8nio/n8n
     restart: always
@@ -17,5 +17,17 @@ services:
       - ./scripts:/scripts
       - ./app/data:/data
 
+  # 2. BI DASHBOARD: Apache Superset
+  superset:
+    image: apache/superset
+    restart: always
+    ports:
+      - "8088:8088"
+    environment:
+      - SUPERSET_SECRET_KEY=jfinder_super_secret_key_12345
+    volumes:
+      - superset_data:/app/superset_home
+
 volumes:
   n8n_data:
+  superset_data:
