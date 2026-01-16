@@ -1,191 +1,129 @@
-'use client';
+import { auth } from '@/auth';
+import { prisma } from '@/lib/prisma';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import { Plus, Eye, Users, ArrowUpRight, Edit, MapPin } from 'lucide-react';
+import ValuationSection from './ValuationSection';
+import DeleteListingButton from './DeleteListingButton';
 
-import { useState, useEffect } from 'react';
-import { DollarSign, Users, Eye, ArrowUpRight, Loader2 } from 'lucide-react';
-import { getValuation, fetchStats } from '@/lib/api';
-import { PROVINCES, getDistrictsByProvince, getProvinceShortName } from '@/lib/districts';
+export default async function LandlordDashboard() {
+  const session = await auth();
+  if (!session?.user || session.user.role !== 'LANDLORD') {
+    redirect('/login');
+  }
 
-export default function LandlordPage() {
-  const [loading, setLoading] = useState(false);
-  const [stats, setStats] = useState<any>({ totalViews: 12500, total: 1000, avgPrice: 67.5 });
-  const [formData, setFormData] = useState({
-    province: '',
-    district: '',
-    area: 80,
-    frontage: 5,
-    floors: 2,
-    type: 'shophouse'
+  // Fetch Landlord's Listings
+  const myListings = await prisma.listing.findMany({
+    where: { landlordId: session.user.id },
+    orderBy: { createdAt: 'desc' },
   });
-  const [result, setResult] = useState<any>(null);
 
-  useEffect(() => {
-    fetchStats().then(data => {
-      if (data) setStats({ ...stats, ...data, totalViews: data.total * 15 });
-    });
-  }, []);
-
-  const handleValuation = async () => {
-    setLoading(true);
-    try {
-      const data = await getValuation({
-        district: formData.district || 'Quận 1', // Fallback
-        area: formData.area,
-        frontage: formData.frontage,
-        floors: formData.floors,
-        type: formData.type
-      });
-
-      setResult(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Calculate Personal Stats
+  const totalViews = myListings.reduce((sum, item) => sum + (item.views || 0), 0);
+  const totalListings = myListings.length;
+  // Mock leads
+  const totalLeads = Math.round(totalViews / 15);
 
   return (
-    <div className="min-h-screen pt-24 pb-20 px-4 md:px-8">
-      <div className="max-w-5xl mx-auto">
-        <header className="mb-12 text-center">
-          <div className="inline-block px-3 py-1 bg-green-900/30 border border-green-500/30 rounded-full text-green-400 text-xs font-bold mb-4">
-            KÊNH CHỦ NHÀ
+    <div className="min-h-screen pt-24 pb-20 px-4 md:px-8 bg-slate-950">
+      <div className="max-w-6xl mx-auto">
+        <header className="mb-12 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+          <div>
+            <div className="inline-block px-3 py-1 bg-green-900/30 border border-green-500/30 rounded-full text-green-400 text-xs font-bold mb-4">
+              DASHBOARD CHỦ NHÀ
+            </div>
+            <h1 className="text-3xl md:text-5xl font-black text-white mb-2">
+              Xin chào, {session.user.name}
+            </h1>
+            <p className="text-gray-400">Quản lý tài sản và tối ưu hóa lợi nhuận.</p>
           </div>
-          <h1 className="text-3xl md:text-5xl font-black text-white mb-2">
-            Tối Đa Hóa Giá Trị Tài Sản
-          </h1>
-          <p className="text-gray-400">Định giá & quản lý thông minh với Dữ liệu JFinder.</p>
+
+          <Link
+            href="/landlord/create-listing"
+            className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl font-bold text-white hover:opacity-90 transition-opacity flex items-center gap-2 shadow-lg shadow-cyan-500/20"
+          >
+            <Plus className="w-5 h-5" /> Đăng Tin Mới
+          </Link>
         </header>
 
         {/* Dashboard KPIs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {[
-            { label: 'Lượt Xem Tin', val: stats.totalViews.toLocaleString(), sub: '30 ngày qua', icon: Eye, color: 'text-purple-400', bg: 'bg-purple-500/10' },
-            { label: 'Khách Quan Tâm', val: Math.round(stats.total / 3).toLocaleString(), sub: 'Độ quan tâm cao', icon: Users, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
-            { label: 'Tiềm Năng Tăng Giá', val: '+12.5%', sub: 'So với năm ngoái', icon: ArrowUpRight, color: 'text-green-400', bg: 'bg-green-500/10' }
+            { label: 'Tổng Lượt Xem', val: totalViews.toLocaleString(), sub: 'Trên tất cả tin đăng', icon: Eye, color: 'text-purple-400', bg: 'bg-purple-500/10' },
+            { label: 'Khách Quan Tâm', val: totalLeads.toLocaleString(), sub: 'Ước tính liên hệ', icon: Users, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+            { label: 'Tin Đang Hiển Thị', val: totalListings, sub: 'Đang hoạt động', icon: ArrowUpRight, color: 'text-green-400', bg: 'bg-green-500/10' }
           ].map((stat, idx) => (
-            <div key={idx} className="glass-card p-6 rounded-2xl flex items-center gap-5 hover:bg-white/5 transition-colors">
+            <div key={idx} className="glass-card p-6 rounded-2xl flex items-center gap-5 hover:bg-white/5 transition-colors border border-white/5">
               <div className={`p-4 rounded-xl ${stat.bg}`}>
                 <stat.icon className={`w-6 h-6 ${stat.color}`} />
               </div>
               <div>
                 <div className="text-3xl font-bold text-white leading-none mb-1">{stat.val}</div>
                 <div className="text-xs text-gray-400 font-medium uppercase tracking-wider">{stat.label}</div>
+                <div className="text-xs text-gray-500 mt-1">{stat.sub}</div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="glass-card rounded-3xl p-1 border border-white/10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+        {/* My Listings */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">Tin Đăng Của Tôi</h2>
 
-          <div className="bg-[#0f172a]/80 backdrop-blur-xl rounded-[20px] p-8 md:p-12">
-            <h2 className="text-2xl font-bold mb-8 flex items-center gap-3 text-white">
-              <span className="p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-white shadow-lg shadow-cyan-500/20">
-                <DollarSign className="w-5 h-5" />
-              </span>
-              Công Cụ Định Giá Thông Minh (AI Valuation)
-            </h2>
-
-            <div className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                {/* Province Selection */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Thành Phố</label>
-                  <select
-                    value={formData.province}
-                    onChange={e => setFormData({ ...formData, province: e.target.value, district: '' })}
-                    className="w-full bg-slate-800 border border-white/10 rounded-xl p-3 text-white focus:border-cyan-500 outline-none transition-all cursor-pointer"
-                  >
-                    <option value="">Chọn thành phố</option>
-                    {PROVINCES.map(p => (
-                      <option key={p} value={p}>{getProvinceShortName(p)}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* District Selection */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Quận / Huyện</label>
-                  <select
-                    value={formData.district}
-                    onChange={e => setFormData({ ...formData, district: e.target.value })}
-                    disabled={!formData.province}
-                    className="w-full bg-slate-800 border border-white/10 rounded-xl p-3 text-white focus:border-cyan-500 outline-none disabled:opacity-50 transition-all cursor-pointer"
-                  >
-                    <option value="">{formData.province ? 'Chọn quận' : 'Vui lòng chọn TP trước'}</option>
-                    {formData.province && getDistrictsByProvince(formData.province).map(d => (
-                      <option key={d} value={d}>{d}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Area Input */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Diện Tích (m²)</label>
-                  <input
-                    type="number"
-                    value={formData.area}
-                    onChange={(e) => setFormData({ ...formData, area: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-white/10 rounded-xl p-3 text-white focus:border-cyan-500 outline-none transition-all"
-                  />
-                </div>
-
-                {/* Frontage Input */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Mặt Tiền (m)</label>
-                  <input
-                    type="number"
-                    value={formData.frontage}
-                    onChange={(e) => setFormData({ ...formData, frontage: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-white/10 rounded-xl p-3 text-white focus:border-cyan-500 outline-none transition-all"
-                  />
-                </div>
-
-                {/* Floors Input */}
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Số Tầng</label>
-                  <input
-                    type="number"
-                    value={formData.floors}
-                    onChange={(e) => setFormData({ ...formData, floors: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-white/10 rounded-xl p-3 text-white focus:border-cyan-500 outline-none transition-all"
-                  />
-                </div>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-gradient-to-r from-blue-900/20 to-cyan-900/20 border border-cyan-500/30 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div className="flex-1">
-                  <div className="text-xs text-cyan-400 font-bold uppercase tracking-widest mb-1">Mức Giá AI Gợi Ý</div>
-                  {result ? (
-                    <div className="animate-fade-in-up">
-                      <div className="text-3xl md:text-5xl font-black text-white tracking-tight flex items-baseline gap-2">
-                        {result.priceRange.min} - {result.priceRange.max} <span className="text-lg font-medium text-gray-400">Triệu / Tháng</span>
-                      </div>
-                      <p className="text-sm text-gray-400 mt-2">
-                        Độ tin cậy: <span className="text-green-400 font-bold">{result.riskLevel === 'low' ? 'Cao' : 'Trung bình'}</span> •
-                        Điểm tiềm năng: <span className="text-cyan-400 font-bold">{result.potentialScore}/100</span>
-                      </p>
+          {myListings.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {myListings.map(listing => (
+                <div key={listing.id} className="glass-card rounded-2xl overflow-hidden border border-white/10 group hover:border-cyan-500/50 transition-colors">
+                  {/* Image */}
+                  <div className="h-48 bg-slate-800 relative overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={listing.images[0] || '/placeholder.jpg'}
+                      alt={listing.title || listing.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2 py-1 rounded-lg text-xs text-white font-bold">
+                      {listing.views} Views
                     </div>
-                  ) : (
-                    <div className="text-gray-500 text-lg italic">
-                      Nhập thông tin và bấm nút để định giá...
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5">
+                    <h3 className="text-lg font-bold text-white mb-1 line-clamp-1">{listing.title || listing.name}</h3>
+                    <div className="text-cyan-400 font-bold mb-3">{listing.price} Triệu / Tháng</div>
+                    <div className="text-sm text-gray-400 mb-4 line-clamp-1 flex items-center gap-1">
+                      <MapPin className="w-4 h-4" />
+                      {listing.city || 'TP.HCM'} - {listing.district}
                     </div>
-                  )}
+
+                    <div className="flex gap-2">
+                      <Link href={`/listing/${listing.id}`} className="flex-1 py-2 bg-white/5 rounded-lg text-center text-sm font-medium text-white hover:bg-white/10 transition-colors">
+                        Xem Chi Tiết
+                      </Link>
+                      <Link href={`/landlord/edit-listing/${listing.id}`} className="p-2 bg-cyan-500/10 text-cyan-400 rounded-lg hover:bg-cyan-500/20 transition-colors" title="Chỉnh sửa">
+                        <Edit className="w-5 h-5" />
+                      </Link>
+                      <DeleteListingButton listingId={listing.id} />
+                    </div>
+                  </div>
                 </div>
-                <button
-                  onClick={handleValuation}
-                  disabled={loading}
-                  type="button"
-                  className="px-8 py-4 bg-white text-black rounded-xl font-bold hover:bg-cyan-50 transition-colors shadow-xl text-nowrap flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {loading && <Loader2 className="w-4 h-4 animate-spin" />}
-                  {loading ? 'Đang Tính Toán...' : 'Định Giá Ngay'}
-                </button>
-              </div>
+              ))}
             </div>
-          </div>
+          ) : (
+            <div className="text-center py-12 bg-white/5 rounded-2xl border border-white/10 border-dashed">
+              <p className="text-gray-400 mb-4">Bạn chưa có tin đăng nào.</p>
+              <Link
+                href="/landlord/create-listing"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500/20 text-cyan-400 rounded-xl font-bold hover:bg-cyan-500/30 transition-colors"
+              >
+                <Plus className="w-5 h-5" /> Tạo Tin Đầu Tiên
+              </Link>
+            </div>
+          )}
         </div>
+
+        {/* Valuation Tool */}
+        <ValuationSection />
       </div>
     </div>
   );

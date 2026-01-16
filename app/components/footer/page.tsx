@@ -6,8 +6,6 @@ import { Mail, Map, Shuffle, MapPin, Github } from 'lucide-react';
 export default function Footer() {
   const Links = [
     { name: 'Heatmap', href: '/map', icon: Map },
-    { name: 'AI Decision', href: '/analysis', icon: Shuffle },
-    { name: 'Landlord', href: '/landlord', icon: MapPin },
   ];
 
   return (

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 export default function HomePage() {
   return (
     <div className="min-h-screen text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
@@ -20,10 +22,10 @@ export default function HomePage() {
             <span className="text-xs font-bold tracking-widest text-cyan-300 uppercase">JFinder Intelligent System</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-8 leading-tight">
-            <span className="block text-white">Location Intelligence</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x">
-              Decoded by AI
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-8 leading-tight">
+            <span className="block text-white mb-2">HỖ TRỢ RA QUYẾT ĐỊNH</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x block">
+              THUÊ MẶT BẰNG KINH DOANH
             </span>
           </h1>
 
@@ -40,9 +42,7 @@ export default function HomePage() {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
-            <a href="/analysis" className="px-8 py-4 rounded-full font-semibold text-cyan-100 glass-panel hover:bg-white/5 hover:border-cyan-500/50 transition-all flex items-center gap-2">
-              Chạy Phân tích AI
-            </a>
+
           </div>
         </div>
 

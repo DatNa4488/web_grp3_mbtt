@@ -7,20 +7,28 @@ interface ValuationCardProps {
   listing?: Partial<Listing> & { price?: number; ai?: any };
 }
 
-export default function ValuationCard({ listing }: ValuationCardProps) {
-  // Mock data fallback if no listing provided
-  const data = listing?.ai ? {
+export default function ValuationCard({ listing, onShowDetails }: ValuationCardProps & { onShowDetails?: () => void }) {
+  // If no listing provided, show Empty State
+  if (!listing || !listing.ai) {
+    return (
+      <div className="glass-card rounded-2xl p-8 relative overflow-hidden min-h-[450px] flex flex-col items-center justify-center text-center opacity-70 border-dashed border-2 border-white/10">
+        <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6 animate-pulse">
+          <TrendingUp className="w-10 h-10 text-gray-600" />
+        </div>
+        <h3 className="text-xl font-bold text-gray-300 mb-2">Chưa có dữ liệu</h3>
+        <p className="text-sm text-gray-500 max-w-xs">
+          Vui lòng nhập thông tin mặt bằng và nhấn "Tạo Báo Cáo Phân Tích" để xem kết quả định giá AI.
+        </p>
+      </div>
+    );
+  }
+
+  const data = {
     price: listing.price || 0,
     suggestedPrice: listing.ai.suggestedPrice || 0,
     growth: listing.ai.growthForecast || 5.0,
     label: listing.ai.priceLabel === 'cheap' ? 'Giá Rẻ' : listing.ai.priceLabel === 'fair' ? 'Giá Hợp Lý' : 'Giá Cao',
     score: listing.ai.potentialScore || 0
-  } : {
-    price: 35,
-    suggestedPrice: 32,
-    growth: 5.2,
-    label: 'Giá Hợp Lý',
-    score: 78
   };
 
   const marketRange = `${Math.round(data.suggestedPrice * 0.9)} - ${Math.round(data.suggestedPrice * 1.1)} Tr`;
@@ -91,7 +99,9 @@ export default function ValuationCard({ listing }: ValuationCardProps) {
         </div>
       </div>
 
-      <button className="w-full mt-6 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 py-3 rounded-xl text-white text-sm font-bold shadow-lg shadow-cyan-900/20 transition-all hover:scale-[1.02]">
+      <button
+        onClick={onShowDetails}
+        className="w-full mt-6 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 py-3 rounded-xl text-white text-sm font-bold shadow-lg shadow-cyan-900/20 transition-all hover:scale-[1.02]">
         Xem Báo Cáo Chi Tiết
       </button>
     </div>

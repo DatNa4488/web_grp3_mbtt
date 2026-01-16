@@ -1,51 +1,401 @@
-id,name,district,type,price,area,frontage,floors,latitude,longitude,ai_potential_score,ai_suggested_price,ai_risk_level,ai_price_label,views,created_date
-MB0001,Shophouse - Phạm Hùng,Thanh Xuân,shophouse,112,182,6.2,3,21.03930494259471,105.80179752398291,60,106,medium,fair,779,2026-01-13
-MB0002,Office - Trần Duy Hưng,Hoàng Mai,office,115,212,11.7,1,21.032833989790024,105.83542081227814,67,109,medium,fair,217,2026-01-13
-MB0003,Shophouse - Xuân Thủy,Long Biên,shophouse,41,61,6.2,1,21.0455336244237,105.82515000364769,75,39,low,fair,595,2026-01-13
-MB0004,Shophouse - Lê Văn Lương,Tây Hồ,shophouse,166,193,8.7,2,21.02654887036932,105.81368133272586,83,158,low,fair,1116,2026-01-13
-MB0005,Office - Láng Hạ,Cầu Giấy,office,127,62,11.5,2,21.047579815404017,105.80550611935574,54,121,medium,fair,854,2026-01-13
-MB0006,Kiosk - Láng Hạ,Long Biên,kiosk,90,118,6.3,4,21.040787734592637,105.82176081916226,76,86,low,fair,1929,2026-01-13
-MB0007,Retail - Nguyễn Trãi,Đống Đa,retail,126,75,4.7,4,21.021921198903588,105.8224183251447,83,120,low,fair,2070,2026-01-13
-MB0008,Shophouse - Nguyễn Trãi,Nam Từ Liêm,shophouse,45,159,2.2,3,21.004228672912806,105.81185243537021,73,43,low,fair,1743,2026-01-13
-MB0009,Shophouse - Lê Văn Lương,Hà Đông,shophouse,148,170,6,2,21.030482034017577,105.83248457582218,60,141,medium,fair,1019,2026-01-13
-MB0010,Office - Phạm Hùng,Hoàn Kiếm,office,156,143,4.3,2,21.004964944310956,105.83065720669877,77,148,low,fair,1644,2026-01-13
-MB0011,Shophouse - Xuân Thủy,Hà Đông,shophouse,44,44,11.2,4,21.008060766626645,105.81383030155463,88,42,low,fair,1636,2026-01-13
-MB0012,Kiosk - Kim Mã,Bắc Từ Liêm,kiosk,31,101,3.6,3,21.033588839420574,105.81854479504786,81,29,low,fair,1928,2026-01-13
-MB0013,Retail - Láng Hạ,Hoàng Mai,retail,126,171,11.7,1,21.023708024960975,105.801632788444,72,120,low,fair,1812,2026-01-13
-MB0014,Retail - Phạm Hùng,Thanh Xuân,retail,21,37,10.7,1,21.04541325019927,105.8442642757769,70,20,medium,fair,1593,2026-01-13
-MB0015,Office - Xuân Thủy,Hoàn Kiếm,office,83,166,6.8,1,21.015905935557587,105.81450002258642,82,79,low,fair,2030,2026-01-13
-MB0016,Shophouse - Trần Duy Hưng,Bắc Từ Liêm,shophouse,66,110,5.3,3,21.012632934239026,105.83750013259562,67,63,medium,fair,908,2026-01-13
-MB0017,Kiosk - Láng Hạ,Hoàn Kiếm,kiosk,33,154,2.8,4,21.023584887760954,105.81668553243405,57,31,medium,fair,1832,2026-01-13
-MB0018,Shophouse - Nguyễn Trãi,Hoàn Kiếm,shophouse,56,187,3.7,1,21.03309593540201,105.81771741435284,50,53,medium,fair,529,2026-01-13
-MB0019,Office - Phạm Hùng,Hoàng Mai,office,138,175,3.9,4,21.025806536885593,105.84139041034868,67,131,medium,fair,489,2026-01-13
-MB0020,Retail - Trần Duy Hưng,Ba Đình,retail,160,167,9.6,4,21.020053592003546,105.84997819844452,70,152,medium,fair,523,2026-01-13
-MB0021,Office - Kim Mã,Tây Hồ,office,62,135,6.8,1,21.015575575884103,105.82729078500685,78,59,low,fair,2053,2026-01-13
-MB0022,Kiosk - Lê Văn Lương,Hà Đông,kiosk,25,68,4.5,3,21.02723121810789,105.8265929609715,67,24,medium,fair,873,2026-01-13
-MB0023,Retail - Trần Duy Hưng,Hoàn Kiếm,retail,54,43,2,4,21.01757219747789,105.8288448815568,79,51,low,fair,982,2026-01-13
-MB0024,Office - Nguyễn Trãi,Hai Bà Trưng,office,43,34,8.9,2,21.020618471617443,105.83813358490232,70,41,medium,fair,1738,2026-01-13
-MB0025,Shophouse - Lê Văn Lương,Hà Đông,shophouse,94,116,9.9,2,21.048317399310353,105.82533996242358,65,89,medium,fair,1985,2026-01-13
-MB0026,Shophouse - Lê Văn Lương,Nam Từ Liêm,shophouse,89,151,5.4,1,21.017190231166026,105.84132104335784,74,85,low,fair,1952,2026-01-13
-MB0027,Shophouse - Kim Mã,Tây Hồ,shophouse,139,137,4.9,3,21.03017253550528,105.84356220889707,74,132,low,fair,692,2026-01-13
-MB0028,Retail - Trần Duy Hưng,Hoàn Kiếm,retail,23,209,3.4,3,21.004832313124403,105.8273470235124,77,22,low,fair,1192,2026-01-13
-MB0029,Office - Xuân Thủy,Ba Đình,office,44,148,3.1,2,21.038660965296696,105.84757105281716,68,42,medium,fair,676,2026-01-13
-MB0030,Retail - Kim Mã,Hoàng Mai,retail,124,83,6.9,4,21.023309326099156,105.82995865997255,89,118,low,fair,210,2026-01-13
-MB0031,Shophouse - Xuân Thủy,Nam Từ Liêm,shophouse,122,173,10.2,4,21.014713753851186,105.83601273992373,80,116,low,fair,1192,2026-01-13
-MB0032,Shophouse - Lê Văn Lương,Ba Đình,shophouse,132,114,3.8,1,21.010106176847376,105.82792050684668,77,125,low,fair,1448,2026-01-13
-MB0033,Kiosk - Lê Văn Lương,Nam Từ Liêm,kiosk,154,218,4.9,1,21.017385781349695,105.84547331158339,52,146,medium,fair,2025,2026-01-13
-MB0034,Retail - Lê Văn Lương,Hoàng Mai,retail,160,34,11.9,1,21.01909027421795,105.83150572682628,55,152,medium,fair,649,2026-01-13
-MB0035,Retail - Trần Duy Hưng,Đống Đa,retail,134,129,5.6,3,21.019986633511802,105.81888707022355,62,127,medium,fair,981,2026-01-13
-MB0036,Retail - Láng Hạ,Đống Đa,retail,128,35,4.3,2,21.012401857569294,105.83404831870828,53,122,medium,fair,1040,2026-01-13
-MB0037,Shophouse - Lê Văn Lương,Long Biên,shophouse,70,42,8.9,1,21.02047365188438,105.80763500546801,55,67,medium,fair,1183,2026-01-13
-MB0038,Retail - Láng Hạ,Tây Hồ,retail,140,36,4.4,2,21.012150445287457,105.81513915067953,70,133,medium,fair,887,2026-01-13
-MB0039,Office - Xuân Thủy,Cầu Giấy,office,101,210,10.8,4,21.047872041408848,105.83639039138065,67,96,medium,fair,1804,2026-01-13
-MB0040,Office - Láng Hạ,Hoàng Mai,office,158,184,6.4,2,21.031395540669042,105.83423192173505,84,150,low,fair,752,2026-01-13
-MB0041,Kiosk - Kim Mã,Hoàng Mai,kiosk,144,154,3.7,2,21.027357383765978,105.83986607399316,54,137,medium,fair,1597,2026-01-13
-MB0042,Kiosk - Trần Duy Hưng,Ba Đình,kiosk,63,85,9.1,3,21.028530893125588,105.81249067248564,55,60,medium,fair,315,2026-01-13
-MB0043,Office - Kim Mã,Đống Đa,office,166,176,2.9,3,21.01092324086691,105.80677708097649,82,158,low,fair,1956,2026-01-13
-MB0044,Kiosk - Phạm Hùng,Đống Đa,kiosk,91,138,7.1,1,21.045827200847665,105.81538982218838,58,86,medium,fair,1600,2026-01-13
-MB0045,Shophouse - Lê Văn Lương,Long Biên,shophouse,121,141,9,2,21.049695843873508,105.83071684388567,73,115,low,fair,396,2026-01-13
-MB0046,Shophouse - Nguyễn Trãi,Cầu Giấy,shophouse,108,34,7.7,1,21.012545770279644,105.83064122770146,60,103,medium,fair,1106,2026-01-13
-MB0047,Retail - Nguyễn Trãi,Bắc Từ Liêm,retail,137,205,11.9,3,21.003615888685406,105.8268120467909,62,130,medium,fair,1232,2026-01-13
-MB0048,Kiosk - Nguyễn Trãi,Nam Từ Liêm,kiosk,52,42,4.6,3,21.028526439635634,105.8409065602328,89,49,low,fair,873,2026-01-13
-MB0049,Office - Xuân Thủy,Bắc Từ Liêm,office,123,206,3.2,2,21.039778481330156,105.84420975016505,78,117,low,fair,2072,2026-01-13
-MB0050,Office - Nguyễn Trãi,Hà Đông,office,53,138,11.9,3,21.043362442587316,105.83572978934887,59,50,medium,fair,1853,2026-01-13
+id,name,district,type,price,area,frontage,floors,potential_score,risk_level,views
+MB0139,"Mặt bằng Quận Ba Đình - Kiosk","Quận Ba Đình",kiosk,53,146,6.4,2,80,low,171
+MB0186,"Mặt bằng Quận Hoàn Kiếm - Shophouse","Quận Hoàn Kiếm",shophouse,79,131,4.9,1,85,low,1260
+MB0166,"Mặt bằng Quận Hai Bà Trưng - Shophouse","Quận Hai Bà Trưng",shophouse,92,116,6.9,1,72,low,1503
+MB0056,"Mặt bằng Quận 4 - Office","Quận 4",office,68,130,5.1,1,92,low,110
+MB0020,"Mặt bằng Thành phố Thủ Đức - Shophouse","Thành phố Thủ Đức",shophouse,97,217,7.1,3,73,low,1889
+MB0033,"Mặt bằng Thành phố Thủ Đức - Kiosk","Thành phố Thủ Đức",kiosk,177,250,9.9,1,86,low,1888
+MB0214,"Mặt bằng Quận Hải Châu - Retail","Quận Hải Châu",retail,114,187,6.7,1,77,low,1091
+MB0208,"Mặt bằng Quận Thanh Khê - Kiosk","Quận Thanh Khê",kiosk,72,197,4.3,3,69,low,105
+MB0215,"Mặt bằng Quận Sơn Trà - Shophouse","Quận Sơn Trà",shophouse,109,189,5,4,89,low,1008
+MB0165,"Mặt bằng Quận Hai Bà Trưng - Kiosk","Quận Hai Bà Trưng",kiosk,35,100,9.3,1,61,low,326
+MB0262,"Mặt bằng Quận Cái Răng - Office","Quận Cái Răng",office,140,231,8.5,3,76,low,1107
+MB0017,"Mặt bằng Quận 7 - Retail","Quận 7",retail,119,277,8.1,3,95,low,399
+MB0201,"Mặt bằng Quận Thanh Khê - Retail","Quận Thanh Khê",retail,48,136,7.7,3,79,low,1147
+MB0015,"Mặt bằng Quận 3 - Office","Quận 3",office,123,214,7.4,2,62,low,521
+MB0013,"Mặt bằng Quận 5 - Shophouse","Quận 5",shophouse,30,47,5.3,3,62,low,1380
+MB0194,"Mặt bằng Quận Đống Đa - Office","Quận Đống Đa",office,232,293,9.2,2,75,low,660
+MB0001,"Mặt bằng Quận 3 - Retail","Quận 3",retail,198,264,4.5,1,61,low,175
+MB0396,"Mặt bằng Thành phố Biên Hòa - Shophouse","Thành phố Biên Hòa",shophouse,196,279,9.8,1,92,low,1605
+MB0354,"Mặt bằng Thành phố Thủ Dầu Một - Kiosk","Thành phố Thủ Dầu Một",kiosk,40,66,9.6,2,88,low,321
+MB0237,"Mặt bằng Quận Thanh Khê - Office","Quận Thanh Khê",office,63,81,8.6,2,75,low,792
+MB0014,"Mặt bằng Quận 1 - Office","Quận 1",office,146,205,8.4,3,90,low,1980
+MB0218,"Mặt bằng Quận Hải Châu - Kiosk","Quận Hải Châu",kiosk,121,201,8,3,91,low,494
+MB0180,"Mặt bằng Quận Cầu Giấy - Office","Quận Cầu Giấy",office,40,91,8.3,3,61,low,1381
+MB0040,"Mặt bằng Quận 5 - Office","Quận 5",office,70,123,6.2,2,63,low,1366
+MB0150,"Mặt bằng Quận Cầu Giấy - Shophouse","Quận Cầu Giấy",shophouse,36,73,7.6,3,92,low,1875
+MB0147,"Mặt bằng Quận Ba Đình - Office","Quận Ba Đình",office,205,259,6.9,2,67,low,1323
+MB0107,"Mặt bằng Quận Ba Đình - Retail","Quận Ba Đình",retail,37,54,5.4,4,77,low,170
+MB0334,"Mặt bằng Thành phố Thuận An - Office","Thành phố Thuận An",office,153,268,4.8,1,85,low,537
+MB0050,"Mặt bằng Thành phố Thủ Đức - Office","Thành phố Thủ Đức",office,73,230,8.1,2,86,low,469
+MB0243,"Mặt bằng Quận Ninh Kiều - Kiosk","Quận Ninh Kiều",kiosk,54,114,5.1,4,90,low,1227
+MB0381,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,82,132,9.8,3,61,low,635
+MB0010,"Mặt bằng Quận Bình Thạnh - Retail","Quận Bình Thạnh",retail,198,261,8.4,2,86,low,376
+MB0204,"Mặt bằng Quận Hải Châu - Shophouse","Quận Hải Châu",shophouse,69,166,8.1,2,60,low,237
+MB0007,"Mặt bằng Quận Bình Thạnh - Retail","Quận Bình Thạnh",retail,85,147,8,4,77,low,1165
+MB0183,"Mặt bằng Quận Hoàn Kiếm - Kiosk","Quận Hoàn Kiếm",kiosk,137,177,4.7,3,85,low,1804
+MB0296,"Mặt bằng Quận Hồng Bàng - Office","Quận Hồng Bàng",office,42,59,6.2,1,79,low,1953
+MB0133,"Mặt bằng Quận Hoàn Kiếm - Retail","Quận Hoàn Kiếm",retail,72,93,5.5,1,68,low,142
+MB0066,"Mặt bằng Thành phố Thủ Đức - Retail","Thành phố Thủ Đức",retail,28,84,6.4,4,94,low,1657
+MB0169,"Mặt bằng Quận Cầu Giấy - Kiosk","Quận Cầu Giấy",kiosk,63,105,6.2,1,84,low,1414
+MB0171,"Mặt bằng Quận Tây Hồ - Office","Quận Tây Hồ",office,100,296,6.1,2,70,low,1942
+MB0267,"Mặt bằng Quận Cái Răng - Office","Quận Cái Răng",office,142,183,8.6,4,69,low,1061
+MB0222,"Mặt bằng Quận Hải Châu - Kiosk","Quận Hải Châu",kiosk,112,200,8.9,4,95,low,1989
+MB0282,"Mặt bằng Quận Hồng Bàng - Office","Quận Hồng Bàng",office,159,239,9.8,4,70,low,1186
+MB0034,"Mặt bằng Quận 4 - Office","Quận 4",office,43,67,10,2,70,low,295
+MB0297,"Mặt bằng Quận Ngô Quyền - Shophouse","Quận Ngô Quyền",shophouse,28,86,4,4,89,low,1353
+MB0113,"Mặt bằng Quận Tây Hồ - Kiosk","Quận Tây Hồ",kiosk,117,223,7.8,1,94,low,978
+MB0073,"Mặt bằng Quận Bình Thạnh - Retail","Quận Bình Thạnh",retail,30,55,5.3,3,78,low,1879
+MB0178,"Mặt bằng Quận Hai Bà Trưng - Shophouse","Quận Hai Bà Trưng",shophouse,96,188,7.6,1,86,low,237
+MB0327,"Mặt bằng Thành phố Thủ Dầu Một - Shophouse","Thành phố Thủ Dầu Một",shophouse,192,289,9.8,4,88,low,1271
+MB0389,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,49,107,5.7,4,81,low,1963
+MB0259,"Mặt bằng Quận Ninh Kiều - Shophouse","Quận Ninh Kiều",shophouse,43,104,5.5,4,78,low,976
+MB0140,"Mặt bằng Quận Đống Đa - Office","Quận Đống Đa",office,70,175,6.3,1,74,low,1591
+MB0314,"Mặt bằng Quận Ngô Quyền - Office","Quận Ngô Quyền",office,81,248,6.8,3,85,low,1022
+MB0316,"Mặt bằng Quận Hồng Bàng - Office","Quận Hồng Bàng",office,66,84,4.1,2,81,low,1010
+MB0212,"Mặt bằng Quận Hải Châu - Kiosk","Quận Hải Châu",kiosk,97,230,8.2,3,74,low,1918
+MB0029,"Mặt bằng Quận 5 - Retail","Quận 5",retail,110,260,5.1,1,61,low,935
+MB0067,"Mặt bằng Quận 1 - Office","Quận 1",office,53,136,7.6,4,88,low,930
+MB0229,"Mặt bằng Quận Thanh Khê - Office","Quận Thanh Khê",office,43,73,8.2,4,86,low,344
+MB0163,"Mặt bằng Quận Hoàn Kiếm - Office","Quận Hoàn Kiếm",office,40,78,6.8,2,77,low,568
+MB0377,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,137,298,9.8,1,85,low,1547
+MB0351,"Mặt bằng Thành phố Thuận An - Retail","Thành phố Thuận An",retail,158,294,8.5,3,66,low,1834
+MB0084,"Mặt bằng Quận 4 - Retail","Quận 4",retail,144,214,8.8,2,64,low,518
+MB0289,"Mặt bằng Quận Ngô Quyền - Kiosk","Quận Ngô Quyền",kiosk,48,67,9.7,2,81,low,1335
+MB0270,"Mặt bằng Quận Cái Răng - Retail","Quận Cái Răng",retail,169,274,5.2,1,66,low,1326
+MB0358,"Mặt bằng Thành phố Thủ Dầu Một - Office","Thành phố Thủ Dầu Một",office,29,43,6.1,4,88,low,1719
+MB0098,"Mặt bằng Quận 5 - Office","Quận 5",office,63,180,8.2,4,91,low,558
+MB0277,"Mặt bằng Quận Cái Răng - Office","Quận Cái Răng",office,153,258,6.4,3,89,low,683
+MB0059,"Mặt bằng Quận 5 - Retail","Quận 5",retail,33,42,7.3,4,86,low,86
+MB0356,"Mặt bằng Thành phố Thuận An - Office","Thành phố Thuận An",office,69,114,6.9,1,94,low,1575
+MB0322,"Mặt bằng Thành phố Thuận An - Kiosk","Thành phố Thuận An",kiosk,92,202,6.6,4,78,low,1863
+MB0321,"Mặt bằng Thành phố Thuận An - Kiosk","Thành phố Thuận An",kiosk,137,218,8.7,4,93,low,664
+MB0318,"Mặt bằng Quận Ngô Quyền - Office","Quận Ngô Quyền",office,139,267,5.5,1,74,low,811
+MB0317,"Mặt bằng Quận Ngô Quyền - Kiosk","Quận Ngô Quyền",kiosk,83,139,6.2,4,74,low,1818
+MB0102,"Mặt bằng Quận Hoàn Kiếm - Kiosk","Quận Hoàn Kiếm",kiosk,84,179,4,4,91,low,266
+MB0179,"Mặt bằng Quận Cầu Giấy - Shophouse","Quận Cầu Giấy",shophouse,139,290,4.5,1,66,low,1458
+MB0008,"Mặt bằng Quận 3 - Office","Quận 3",office,219,277,9.3,3,75,low,1184
+MB0026,"Mặt bằng Quận 4 - Office","Quận 4",office,41,81,8.6,1,92,low,1668
+MB0120,"Mặt bằng Quận Ba Đình - Shophouse","Quận Ba Đình",shophouse,91,128,7.9,2,77,low,277
+MB0044,"Mặt bằng Quận 3 - Kiosk","Quận 3",kiosk,140,203,7.4,3,67,low,648
+MB0104,"Mặt bằng Quận Hai Bà Trưng - Kiosk","Quận Hai Bà Trưng",kiosk,124,254,5.9,4,76,low,713
+MB0336,"Mặt bằng Thành phố Thuận An - Office","Thành phố Thuận An",office,106,253,8.4,3,74,low,679
+MB0053,"Mặt bằng Quận 3 - Retail","Quận 3",retail,47,81,8.6,4,75,low,398
+MB0094,"Mặt bằng Quận 7 - Shophouse","Quận 7",shophouse,79,131,9.6,4,63,low,842
+MB0076,"Mặt bằng Quận 3 - Shophouse","Quận 3",shophouse,129,217,5,3,77,low,601
+MB0258,"Mặt bằng Quận Cái Răng - Kiosk","Quận Cái Răng",kiosk,51,107,8.4,3,73,low,1032
+MB0240,"Mặt bằng Quận Hải Châu - Retail","Quận Hải Châu",retail,180,252,7.4,1,70,low,365
+MB0162,"Mặt bằng Quận Ba Đình - Kiosk","Quận Ba Đình",kiosk,23,52,4.5,4,89,low,892
+MB0121,"Mặt bằng Quận Hai Bà Trưng - Retail","Quận Hai Bà Trưng",retail,103,204,4.1,3,93,low,1515
+MB0031,"Mặt bằng Quận 5 - Kiosk","Quận 5",kiosk,29,55,7.1,1,76,low,861
+MB0125,"Mặt bằng Quận Đống Đa - Retail","Quận Đống Đa",retail,50,137,9.1,1,80,low,1998
+MB0157,"Mặt bằng Quận Ba Đình - Shophouse","Quận Ba Đình",shophouse,184,255,7,4,84,low,1361
+MB0115,"Mặt bằng Quận Đống Đa - Shophouse","Quận Đống Đa",shophouse,84,126,8.3,4,92,low,1530
+MB0341,"Mặt bằng Thành phố Thuận An - Kiosk","Thành phố Thuận An",kiosk,157,220,7.2,3,79,low,338
+MB0134,"Mặt bằng Quận Ba Đình - Retail","Quận Ba Đình",retail,117,233,7.8,3,75,low,1164
+MB0220,"Mặt bằng Quận Hải Châu - Kiosk","Quận Hải Châu",kiosk,39,79,4.9,3,93,low,128
+MB0302,"Mặt bằng Quận Hồng Bàng - Retail","Quận Hồng Bàng",retail,182,267,5.9,2,90,low,237
+MB0129,"Mặt bằng Quận Ba Đình - Office","Quận Ba Đình",office,23,62,4.9,3,90,low,1249
+MB0369,"Mặt bằng Thành phố Biên Hòa - Kiosk","Thành phố Biên Hòa",kiosk,88,197,5.6,1,69,low,1257
+MB0308,"Mặt bằng Quận Hồng Bàng - Kiosk","Quận Hồng Bàng",kiosk,46,82,6.8,3,73,low,1961
+MB0331,"Mặt bằng Thành phố Thủ Dầu Một - Office","Thành phố Thủ Dầu Một",office,87,192,5.7,1,60,low,1366
+MB0019,"Mặt bằng Quận 3 - Kiosk","Quận 3",kiosk,62,95,6,2,89,low,1308
+MB0221,"Mặt bằng Quận Hải Châu - Office","Quận Hải Châu",office,140,183,7.9,3,88,low,1343
+MB0299,"Mặt bằng Quận Ngô Quyền - Shophouse","Quận Ngô Quyền",shophouse,34,54,4.5,1,75,low,1295
+MB0083,"Mặt bằng Quận 5 - Office","Quận 5",office,111,191,7.8,3,95,low,280
+MB0148,"Mặt bằng Quận Hoàn Kiếm - Retail","Quận Hoàn Kiếm",retail,64,191,8.7,2,64,low,680
+MB0335,"Mặt bằng Thành phố Thủ Dầu Một - Kiosk","Thành phố Thủ Dầu Một",kiosk,62,142,5.8,2,82,low,210
+MB0386,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,51,75,9.2,1,92,low,270
+MB0190,"Mặt bằng Quận Ba Đình - Shophouse","Quận Ba Đình",shophouse,89,121,10,2,74,low,1908
+MB0337,"Mặt bằng Thành phố Thuận An - Retail","Thành phố Thuận An",retail,39,129,9.8,1,78,low,1785
+MB0328,"Mặt bằng Thành phố Thuận An - Office","Thành phố Thuận An",office,81,130,8.7,1,87,low,1604
+MB0170,"Mặt bằng Quận Đống Đa - Shophouse","Quận Đống Đa",shophouse,82,106,6.5,1,86,low,1781
+MB0330,"Mặt bằng Thành phố Thủ Dầu Một - Office","Thành phố Thủ Dầu Một",office,83,177,9.3,1,91,low,616
+MB0048,"Mặt bằng Quận 1 - Kiosk","Quận 1",kiosk,36,70,4.3,4,64,low,1742
+MB0173,"Mặt bằng Quận Đống Đa - Office","Quận Đống Đa",office,43,54,7.3,4,92,low,897
+MB0234,"Mặt bằng Quận Thanh Khê - Kiosk","Quận Thanh Khê",kiosk,35,59,5.5,2,60,low,242
+MB0175,"Mặt bằng Quận Ba Đình - Shophouse","Quận Ba Đình",shophouse,43,78,7.2,1,77,low,1834
+MB0085,"Mặt bằng Quận 5 - Kiosk","Quận 5",kiosk,106,184,5.1,1,61,low,1277
+MB0128,"Mặt bằng Quận Cầu Giấy - Office","Quận Cầu Giấy",office,122,196,7.2,4,67,low,1528
+MB0276,"Mặt bằng Quận Cái Răng - Kiosk","Quận Cái Răng",kiosk,52,136,5.4,3,81,low,1973
+MB0023,"Mặt bằng Quận 5 - Retail","Quận 5",retail,119,174,7.6,1,75,low,1504
+MB0164,"Mặt bằng Quận Ba Đình - Office","Quận Ba Đình",office,19,41,5.8,1,91,low,1864
+MB0363,"Mặt bằng Thành phố Biên Hòa - Kiosk","Thành phố Biên Hòa",kiosk,48,154,9.4,2,65,low,640
+MB0097,"Mặt bằng Quận 4 - Office","Quận 4",office,113,279,5.2,4,68,low,548
+MB0116,"Mặt bằng Quận Ba Đình - Retail","Quận Ba Đình",retail,51,135,8.1,1,68,low,1155
+MB0172,"Mặt bằng Quận Tây Hồ - Kiosk","Quận Tây Hồ",kiosk,84,189,7,2,79,low,265
+MB0247,"Mặt bằng Quận Ninh Kiều - Shophouse","Quận Ninh Kiều",shophouse,103,136,8.9,4,83,low,681
+MB0211,"Mặt bằng Quận Sơn Trà - Office","Quận Sơn Trà",office,82,172,6,1,60,low,1610
+MB0123,"Mặt bằng Quận Cầu Giấy - Shophouse","Quận Cầu Giấy",shophouse,118,225,9.1,1,90,low,1069
+MB0320,"Mặt bằng Quận Hồng Bàng - Office","Quận Hồng Bàng",office,28,61,4.7,3,71,low,332
+MB0203,"Mặt bằng Quận Thanh Khê - Kiosk","Quận Thanh Khê",kiosk,33,105,4,3,79,low,1595
+MB0060,"Mặt bằng Quận 4 - Shophouse","Quận 4",shophouse,28,44,6.7,1,77,low,1249
+MB0399,"Mặt bằng Thành phố Biên Hòa - Shophouse","Thành phố Biên Hòa",shophouse,125,266,7.9,4,81,low,402
+MB0143,"Mặt bằng Quận Hoàn Kiếm - Kiosk","Quận Hoàn Kiếm",kiosk,56,112,7.5,3,63,low,305
+MB0096,"Mặt bằng Quận 1 - Shophouse","Quận 1",shophouse,95,270,7.6,2,78,low,1707
+MB0012,"Mặt bằng Quận 1 - Retail","Quận 1",retail,106,150,4.1,4,62,low,330
+MB0167,"Mặt bằng Quận Hai Bà Trưng - Shophouse","Quận Hai Bà Trưng",shophouse,49,83,4.8,1,60,low,1666
+MB0080,"Mặt bằng Thành phố Thủ Đức - Shophouse","Thành phố Thủ Đức",shophouse,90,158,5.5,4,63,low,1051
+MB0142,"Mặt bằng Quận Đống Đa - Retail","Quận Đống Đa",retail,40,65,7.8,2,88,low,1872
+MB0349,"Mặt bằng Thành phố Thủ Dầu Một - Retail","Thành phố Thủ Dầu Một",retail,83,168,5.5,4,60,low,933
+MB0114,"Mặt bằng Quận Hai Bà Trưng - Retail","Quận Hai Bà Trưng",retail,109,248,7.7,2,60,low,973
+MB0260,"Mặt bằng Quận Cái Răng - Kiosk","Quận Cái Răng",kiosk,71,103,9.5,4,91,low,577
+MB0226,"Mặt bằng Quận Sơn Trà - Shophouse","Quận Sơn Trà",shophouse,48,81,4.8,3,62,low,582
+MB0325,"Mặt bằng Thành phố Thủ Dầu Một - Retail","Thành phố Thủ Dầu Một",retail,44,58,8.9,2,84,low,949
+MB0016,"Mặt bằng Quận 5 - Office","Quận 5",office,78,115,5.7,2,76,low,919
+MB0339,"Mặt bằng Thành phố Thủ Dầu Một - Retail","Thành phố Thủ Dầu Một",retail,86,244,4,4,84,low,303
+MB0347,"Mặt bằng Thành phố Thuận An - Retail","Thành phố Thuận An",retail,125,181,6.5,4,81,low,508
+MB0032,"Mặt bằng Quận Bình Thạnh - Shophouse","Quận Bình Thạnh",shophouse,89,213,9.2,1,63,low,1506
+MB0006,"Mặt bằng Quận 7 - Shophouse","Quận 7",shophouse,57,178,4.4,3,67,low,1014
+MB0375,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,51,131,7.3,1,91,low,706
+MB0092,"Mặt bằng Quận Bình Thạnh - Kiosk","Quận Bình Thạnh",kiosk,84,143,7.7,1,74,low,1115
+MB0055,"Mặt bằng Thành phố Thủ Đức - Kiosk","Thành phố Thủ Đức",kiosk,77,249,8.6,4,83,low,80
+MB0227,"Mặt bằng Quận Hải Châu - Retail","Quận Hải Châu",retail,63,148,8.4,4,93,low,1086
+MB0344,"Mặt bằng Thành phố Thuận An - Shophouse","Thành phố Thuận An",shophouse,43,87,4.3,3,80,low,1184
+MB0319,"Mặt bằng Quận Hồng Bàng - Retail","Quận Hồng Bàng",retail,125,224,4.3,4,77,low,1394
+MB0202,"Mặt bằng Quận Thanh Khê - Retail","Quận Thanh Khê",retail,121,194,6.6,4,66,low,1178
+MB0291,"Mặt bằng Quận Hồng Bàng - Office","Quận Hồng Bàng",office,183,252,7.8,4,70,low,1517
+MB0021,"Mặt bằng Quận 1 - Retail","Quận 1",retail,89,146,7.1,4,75,low,156
+MB0132,"Mặt bằng Quận Ba Đình - Shophouse","Quận Ba Đình",shophouse,44,127,4.8,2,89,low,1572
+MB0359,"Mặt bằng Thành phố Thủ Dầu Một - Kiosk","Thành phố Thủ Dầu Một",kiosk,69,169,8.1,4,72,low,599
+MB0095,"Mặt bằng Quận 3 - Retail","Quận 3",retail,192,257,5.2,2,61,low,1770
+MB0028,"Mặt bằng Quận 1 - Kiosk","Quận 1",kiosk,68,103,9,2,65,low,740
+MB0154,"Mặt bằng Quận Hai Bà Trưng - Shophouse","Quận Hai Bà Trưng",shophouse,54,136,9.8,1,76,low,681
+MB0248,"Mặt bằng Quận Ninh Kiều - Office","Quận Ninh Kiều",office,70,113,8.7,3,79,low,987
+MB0383,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,26,57,6.1,1,73,low,426
+MB0395,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,111,203,4.7,1,78,low,141
+MB0126,"Mặt bằng Quận Hoàn Kiếm - Shophouse","Quận Hoàn Kiếm",shophouse,49,74,7.4,4,88,low,632
+MB0042,"Mặt bằng Thành phố Thủ Đức - Retail","Thành phố Thủ Đức",retail,37,80,5.6,4,76,low,461
+MB0384,"Mặt bằng Thành phố Biên Hòa - Shophouse","Thành phố Biên Hòa",shophouse,127,224,6.7,1,70,low,1395
+MB0188,"Mặt bằng Quận Đống Đa - Retail","Quận Đống Đa",retail,150,269,8.2,2,70,low,455
+MB0219,"Mặt bằng Quận Hải Châu - Kiosk","Quận Hải Châu",kiosk,40,84,6.5,3,91,low,1027
+MB0257,"Mặt bằng Quận Ninh Kiều - Kiosk","Quận Ninh Kiều",kiosk,77,189,8.2,1,84,low,1641
+MB0193,"Mặt bằng Quận Ba Đình - Shophouse","Quận Ba Đình",shophouse,66,88,8.4,1,75,low,1058
+MB0156,"Mặt bằng Quận Hoàn Kiếm - Shophouse","Quận Hoàn Kiếm",shophouse,91,162,6.5,2,75,low,524
+MB0295,"Mặt bằng Quận Ngô Quyền - Kiosk","Quận Ngô Quyền",kiosk,115,196,6.6,1,62,low,1623
+MB0207,"Mặt bằng Quận Sơn Trà - Kiosk","Quận Sơn Trà",kiosk,59,156,7,1,65,low,1970
+MB0231,"Mặt bằng Quận Hải Châu - Shophouse","Quận Hải Châu",shophouse,233,294,9.4,3,79,low,761
+MB0256,"Mặt bằng Quận Cái Răng - Retail","Quận Cái Răng",retail,76,148,5.8,4,72,low,1152
+MB0035,"Mặt bằng Quận 3 - Office","Quận 3",office,188,278,5.8,2,74,low,900
+MB0307,"Mặt bằng Quận Hồng Bàng - Retail","Quận Hồng Bàng",retail,159,237,7.7,4,85,low,791
+MB0101,"Mặt bằng Quận Hoàn Kiếm - Shophouse","Quận Hoàn Kiếm",shophouse,116,253,5.6,1,60,low,1426
+MB0081,"Mặt bằng Quận 7 - Kiosk","Quận 7",kiosk,59,174,5.4,1,70,low,1444
+MB0350,"Mặt bằng Thành phố Thuận An - Kiosk","Thành phố Thuận An",kiosk,68,120,7,4,66,low,1244
+MB0005,"Mặt bằng Quận 4 - Retail","Quận 4",retail,38,83,9.6,4,61,low,1513
+MB0137,"Mặt bằng Quận Đống Đa - Kiosk","Quận Đống Đa",kiosk,59,178,8.4,3,72,low,1977
+MB0250,"Mặt bằng Quận Cái Răng - Shophouse","Quận Cái Răng",shophouse,61,178,5.3,3,71,low,1923
+MB0249,"Mặt bằng Quận Cái Răng - Shophouse","Quận Cái Răng",shophouse,62,83,8.4,4,70,low,1124
+MB0254,"Mặt bằng Quận Ninh Kiều - Kiosk","Quận Ninh Kiều",kiosk,189,300,5.5,4,93,low,1035
+MB0323,"Mặt bằng Thành phố Thuận An - Office","Thành phố Thuận An",office,69,109,5.1,3,80,low,1845
+MB0326,"Mặt bằng Thành phố Thủ Dầu Một - Kiosk","Thành phố Thủ Dầu Một",kiosk,115,175,5.3,3,74,low,1879
+MB0046,"Mặt bằng Quận 5 - Kiosk","Quận 5",kiosk,152,251,7.1,1,70,low,1560
+MB0264,"Mặt bằng Quận Ninh Kiều - Office","Quận Ninh Kiều",office,69,183,6.7,2,90,low,739
+MB0272,"Mặt bằng Quận Ninh Kiều - Office","Quận Ninh Kiều",office,124,254,7.6,2,64,low,1594
+MB0236,"Mặt bằng Quận Hải Châu - Shophouse","Quận Hải Châu",shophouse,17,33,9.9,4,85,low,1170
+MB0200,"Mặt bằng Quận Đống Đa - Retail","Quận Đống Đa",retail,74,144,9.9,4,75,low,311
+MB0400,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,28,58,5.8,2,70,low,572
+MB0361,"Mặt bằng Thành phố Biên Hòa - Kiosk","Thành phố Biên Hòa",kiosk,42,55,8.5,1,82,low,745
+MB0392,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,39,87,8.8,3,60,low,843
+MB0047,"Mặt bằng Quận Bình Thạnh - Shophouse","Quận Bình Thạnh",shophouse,65,86,7.3,4,82,low,1157
+MB0058,"Mặt bằng Thành phố Thủ Đức - Retail","Thành phố Thủ Đức",retail,87,263,6.8,1,67,low,1581
+MB0131,"Mặt bằng Quận Cầu Giấy - Kiosk","Quận Cầu Giấy",kiosk,61,128,8.9,1,79,low,1264
+MB0018,"Mặt bằng Thành phố Thủ Đức - Kiosk","Thành phố Thủ Đức",kiosk,91,195,9.9,2,78,low,631
+MB0187,"Mặt bằng Quận Đống Đa - Retail","Quận Đống Đa",retail,32,47,9.7,3,69,low,1589
+MB0388,"Mặt bằng Thành phố Biên Hòa - Shophouse","Thành phố Biên Hòa",shophouse,132,253,9.6,4,69,low,1431
+MB0198,"Mặt bằng Quận Đống Đa - Office","Quận Đống Đa",office,96,178,9.5,3,79,low,296
+MB0280,"Mặt bằng Quận Ninh Kiều - Office","Quận Ninh Kiều",office,83,206,8.8,4,92,low,635
+MB0324,"Mặt bằng Thành phố Thủ Dầu Một - Kiosk","Thành phố Thủ Dầu Một",kiosk,50,109,6.5,2,65,low,1123
+MB0342,"Mặt bằng Thành phố Thủ Dầu Một - Office","Thành phố Thủ Dầu Một",office,57,81,6.6,1,87,low,1736
+MB0306,"Mặt bằng Quận Hồng Bàng - Office","Quận Hồng Bàng",office,62,153,5.9,3,87,low,726
+MB0364,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,74,93,4.9,3,75,low,433
+MB0082,"Mặt bằng Quận Bình Thạnh - Kiosk","Quận Bình Thạnh",kiosk,169,215,9,3,84,low,181
+MB0049,"Mặt bằng Quận Bình Thạnh - Office","Quận Bình Thạnh",office,193,288,9.2,1,63,low,1518
+MB0294,"Mặt bằng Quận Ngô Quyền - Shophouse","Quận Ngô Quyền",shophouse,39,72,8,1,89,low,922
+MB0161,"Mặt bằng Quận Cầu Giấy - Office","Quận Cầu Giấy",office,118,180,5.1,4,81,low,1852
+MB0338,"Mặt bằng Thành phố Thủ Dầu Một - Office","Thành phố Thủ Dầu Một",office,189,248,8.7,1,95,low,562
+MB0210,"Mặt bằng Quận Sơn Trà - Office","Quận Sơn Trà",office,46,101,7.4,4,62,low,489
+MB0024,"Mặt bằng Quận 5 - Kiosk","Quận 5",kiosk,83,121,8.5,4,73,low,359
+MB0245,"Mặt bằng Quận Ninh Kiều - Office","Quận Ninh Kiều",office,20,36,7.3,4,81,low,911
+MB0124,"Mặt bằng Quận Ba Đình - Retail","Quận Ba Đình",retail,49,104,7.4,1,89,low,1178
+MB0027,"Mặt bằng Quận 3 - Kiosk","Quận 3",kiosk,213,287,7.9,1,74,low,1637
+MB0213,"Mặt bằng Quận Hải Châu - Retail","Quận Hải Châu",retail,38,119,4.8,1,87,low,1768
+MB0196,"Mặt bằng Quận Hoàn Kiếm - Kiosk","Quận Hoàn Kiếm",kiosk,132,168,8.1,1,76,low,1103
+MB0072,"Mặt bằng Thành phố Thủ Đức - Office","Thành phố Thủ Đức",office,54,146,9.2,4,80,low,469
+MB0368,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,65,145,6.6,3,81,low,511
+MB0119,"Mặt bằng Quận Hoàn Kiếm - Retail","Quận Hoàn Kiếm",retail,118,165,4.4,3,87,low,784
+MB0086,"Mặt bằng Quận 5 - Office","Quận 5",office,19,49,4.3,2,60,low,1244
+MB0138,"Mặt bằng Quận Ba Đình - Office","Quận Ba Đình",office,192,264,9.8,1,67,low,794
+MB0266,"Mặt bằng Quận Cái Răng - Kiosk","Quận Cái Răng",kiosk,114,174,9.6,2,78,low,1399
+MB0265,"Mặt bằng Quận Cái Răng - Kiosk","Quận Cái Răng",kiosk,109,205,9.4,3,90,low,1747
+MB0038,"Mặt bằng Quận 3 - Office","Quận 3",office,85,236,5.9,3,75,low,1435
+MB0372,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,84,112,5.3,1,92,low,1491
+MB0278,"Mặt bằng Quận Ninh Kiều - Kiosk","Quận Ninh Kiều",kiosk,152,273,6.5,3,77,low,1601
+MB0345,"Mặt bằng Thành phố Thủ Dầu Một - Office","Thành phố Thủ Dầu Một",office,127,174,5.7,4,78,low,586
+MB0273,"Mặt bằng Quận Ninh Kiều - Shophouse","Quận Ninh Kiều",shophouse,102,174,6.4,3,75,low,140
+MB0397,"Mặt bằng Thành phố Biên Hòa - Kiosk","Thành phố Biên Hòa",kiosk,110,152,7,1,63,low,1219
+MB0380,"Mặt bằng Thành phố Biên Hòa - Shophouse","Thành phố Biên Hòa",shophouse,171,266,8,4,64,low,1929
+MB0373,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,25,40,9.8,2,70,low,446
+MB0087,"Mặt bằng Quận 3 - Shophouse","Quận 3",shophouse,49,65,7.5,4,64,low,1344
+MB0371,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,125,220,7.4,1,62,low,956
+MB0216,"Mặt bằng Quận Thanh Khê - Retail","Quận Thanh Khê",retail,56,97,7.2,3,85,low,496
+MB0099,"Mặt bằng Quận 1 - Shophouse","Quận 1",shophouse,32,62,4.6,4,74,low,584
+MB0141,"Mặt bằng Quận Hoàn Kiếm - Kiosk","Quận Hoàn Kiếm",kiosk,30,41,5.8,1,78,low,296
+MB0329,"Mặt bằng Thành phố Thủ Dầu Một - Shophouse","Thành phố Thủ Dầu Một",shophouse,149,212,8.4,4,87,low,555
+MB0051,"Mặt bằng Quận 5 - Shophouse","Quận 5",shophouse,43,90,7.7,2,92,low,1594
+MB0105,"Mặt bằng Quận Ba Đình - Retail","Quận Ba Đình",retail,107,135,4.6,4,68,low,266
+MB0312,"Mặt bằng Quận Ngô Quyền - Retail","Quận Ngô Quyền",retail,94,198,8.9,2,89,low,366
+MB0079,"Mặt bằng Quận 3 - Office","Quận 3",office,46,141,5.7,2,66,low,588
+MB0054,"Mặt bằng Thành phố Thủ Đức - Shophouse","Thành phố Thủ Đức",shophouse,35,58,5.5,1,74,low,1935
+MB0146,"Mặt bằng Quận Đống Đa - Kiosk","Quận Đống Đa",kiosk,14,47,7.7,3,84,low,1878
+MB0061,"Mặt bằng Quận 5 - Kiosk","Quận 5",kiosk,204,291,8.6,2,93,low,110
+MB0009,"Mặt bằng Quận 3 - Office","Quận 3",office,195,249,4.1,4,67,low,1064
+MB0077,"Mặt bằng Thành phố Thủ Đức - Office","Thành phố Thủ Đức",office,146,235,9.7,1,65,low,269
+MB0274,"Mặt bằng Quận Cái Răng - Office","Quận Cái Răng",office,98,158,6.7,1,84,low,1244
+MB0103,"Mặt bằng Quận Cầu Giấy - Office","Quận Cầu Giấy",office,39,82,5.9,2,82,low,1869
+MB0355,"Mặt bằng Thành phố Thủ Dầu Một - Office","Thành phố Thủ Dầu Một",office,135,236,9.3,3,74,low,1304
+MB0145,"Mặt bằng Quận Hai Bà Trưng - Office","Quận Hai Bà Trưng",office,88,275,9.4,3,92,low,417
+MB0088,"Mặt bằng Thành phố Thủ Đức - Retail","Thành phố Thủ Đức",retail,91,207,8.8,2,74,low,845
+MB0252,"Mặt bằng Quận Ninh Kiều - Shophouse","Quận Ninh Kiều",shophouse,98,127,9.4,3,64,low,1698
+MB0305,"Mặt bằng Quận Ngô Quyền - Kiosk","Quận Ngô Quyền",kiosk,69,207,9,4,79,low,1207
+MB0136,"Mặt bằng Quận Tây Hồ - Office","Quận Tây Hồ",office,105,228,5,2,87,low,790
+MB0206,"Mặt bằng Quận Hải Châu - Retail","Quận Hải Châu",retail,30,50,6.2,3,76,low,351
+MB0293,"Mặt bằng Quận Ngô Quyền - Kiosk","Quận Ngô Quyền",kiosk,54,120,9.3,4,67,low,175
+MB0192,"Mặt bằng Quận Ba Đình - Shophouse","Quận Ba Đình",shophouse,101,131,7.4,4,95,low,506
+MB0300,"Mặt bằng Quận Ngô Quyền - Shophouse","Quận Ngô Quyền",shophouse,71,112,5.3,4,60,low,1545
+MB0151,"Mặt bằng Quận Hoàn Kiếm - Retail","Quận Hoàn Kiếm",retail,28,37,5.4,4,74,low,686
+MB0037,"Mặt bằng Quận 3 - Shophouse","Quận 3",shophouse,108,223,5.4,4,91,low,266
+MB0268,"Mặt bằng Quận Cái Răng - Office","Quận Cái Răng",office,24,41,7.6,1,82,low,351
+MB0122,"Mặt bằng Quận Ba Đình - Retail","Quận Ba Đình",retail,42,87,4.7,3,68,low,95
+MB0182,"Mặt bằng Quận Hai Bà Trưng - Shophouse","Quận Hai Bà Trưng",shophouse,153,194,9.1,3,72,low,239
+MB0313,"Mặt bằng Quận Hồng Bàng - Shophouse","Quận Hồng Bàng",shophouse,169,292,5.4,3,62,low,863
+MB0360,"Mặt bằng Thành phố Thủ Dầu Một - Kiosk","Thành phố Thủ Dầu Một",kiosk,81,166,4.2,1,74,low,1531
+MB0153,"Mặt bằng Quận Ba Đình - Shophouse","Quận Ba Đình",shophouse,29,38,5.2,3,67,low,1059
+MB0063,"Mặt bằng Quận 4 - Retail","Quận 4",retail,77,218,5.1,2,81,low,1404
+MB0301,"Mặt bằng Quận Hồng Bàng - Office","Quận Hồng Bàng",office,120,220,6,3,87,low,50
+MB0108,"Mặt bằng Quận Hai Bà Trưng - Shophouse","Quận Hai Bà Trưng",shophouse,170,276,9.7,1,73,low,430
+MB0233,"Mặt bằng Quận Hải Châu - Retail","Quận Hải Châu",retail,195,278,4.6,4,76,low,1564
+MB0223,"Mặt bằng Quận Hải Châu - Office","Quận Hải Châu",office,138,194,9.7,3,78,low,891
+MB0030,"Mặt bằng Quận 1 - Retail","Quận 1",retail,18,51,6.5,3,64,low,1757
+MB0309,"Mặt bằng Quận Ngô Quyền - Shophouse","Quận Ngô Quyền",shophouse,134,231,9,1,62,low,1834
+MB0144,"Mặt bằng Quận Cầu Giấy - Kiosk","Quận Cầu Giấy",kiosk,19,37,9.4,3,87,low,480
+MB0362,"Mặt bằng Thành phố Biên Hòa - Shophouse","Thành phố Biên Hòa",shophouse,120,281,5,1,85,low,123
+MB0065,"Mặt bằng Quận Bình Thạnh - Office","Quận Bình Thạnh",office,43,86,6,4,61,low,1406
+MB0290,"Mặt bằng Quận Ngô Quyền - Shophouse","Quận Ngô Quyền",shophouse,146,246,7.2,1,95,low,1334
+MB0279,"Mặt bằng Quận Ninh Kiều - Shophouse","Quận Ninh Kiều",shophouse,204,288,6.4,2,85,low,477
+MB0340,"Mặt bằng Thành phố Thủ Dầu Một - Kiosk","Thành phố Thủ Dầu Một",kiosk,166,246,7.3,2,60,low,1491
+MB0158,"Mặt bằng Quận Hai Bà Trưng - Retail","Quận Hai Bà Trưng",retail,166,290,4.3,4,92,low,341
+MB0176,"Mặt bằng Quận Cầu Giấy - Retail","Quận Cầu Giấy",retail,50,83,7.6,4,79,low,837
+MB0261,"Mặt bằng Quận Cái Răng - Kiosk","Quận Cái Răng",kiosk,120,207,7.8,1,86,low,1150
+MB0177,"Mặt bằng Quận Đống Đa - Retail","Quận Đống Đa",retail,85,124,4.5,2,75,low,409
+MB0393,"Mặt bằng Thành phố Biên Hòa - Kiosk","Thành phố Biên Hòa",kiosk,68,177,6.4,3,64,low,1311
+MB0036,"Mặt bằng Quận 4 - Shophouse","Quận 4",shophouse,141,208,8.1,2,61,low,946
+MB0111,"Mặt bằng Quận Hoàn Kiếm - Kiosk","Quận Hoàn Kiếm",kiosk,148,272,9.8,4,68,low,565
+MB0205,"Mặt bằng Quận Thanh Khê - Office","Quận Thanh Khê",office,107,232,5.1,1,71,low,1047
+MB0002,"Mặt bằng Quận 1 - Office","Quận 1",office,29,46,4.7,4,60,low,1799
+MB0109,"Mặt bằng Quận Cầu Giấy - Office","Quận Cầu Giấy",office,53,96,4.1,3,60,low,1089
+MB0367,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,163,226,4.3,2,77,low,1654
+MB0045,"Mặt bằng Quận 5 - Retail","Quận 5",retail,115,144,4,4,71,low,788
+MB0263,"Mặt bằng Quận Cái Răng - Kiosk","Quận Cái Răng",kiosk,26,33,9.4,4,71,low,340
+MB0238,"Mặt bằng Quận Thanh Khê - Kiosk","Quận Thanh Khê",kiosk,111,220,4.5,3,72,low,1113
+MB0155,"Mặt bằng Quận Đống Đa - Retail","Quận Đống Đa",retail,21,40,9.1,3,75,low,1433
+MB0062,"Mặt bằng Thành phố Thủ Đức - Retail","Thành phố Thủ Đức",retail,43,85,4.9,1,88,low,1265
+MB0041,"Mặt bằng Quận Bình Thạnh - Kiosk","Quận Bình Thạnh",kiosk,49,126,6,1,60,low,299
+MB0168,"Mặt bằng Quận Cầu Giấy - Kiosk","Quận Cầu Giấy",kiosk,23,35,7.2,2,90,low,904
+MB0284,"Mặt bằng Quận Hồng Bàng - Shophouse","Quận Hồng Bàng",shophouse,126,250,8.2,3,71,low,1953
+MB0089,"Mặt bằng Quận 1 - Shophouse","Quận 1",shophouse,107,237,5.3,2,86,low,742
+MB0075,"Mặt bằng Quận Bình Thạnh - Shophouse","Quận Bình Thạnh",shophouse,25,50,6.7,1,86,low,499
+MB0100,"Mặt bằng Quận 5 - Retail","Quận 5",retail,170,242,9.9,4,62,low,812
+MB0091,"Mặt bằng Quận 7 - Kiosk","Quận 7",kiosk,92,209,4.1,1,68,low,588
+MB0064,"Mặt bằng Quận 3 - Retail","Quận 3",retail,112,142,6.9,1,86,low,1391
+MB0228,"Mặt bằng Quận Hải Châu - Retail","Quận Hải Châu",retail,116,160,6.1,2,88,low,1783
+MB0110,"Mặt bằng Quận Ba Đình - Retail","Quận Ba Đình",retail,84,107,6.1,1,90,low,1647
+MB0365,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,39,110,6.4,3,93,low,432
+MB0374,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,39,95,5.4,2,83,low,1468
+MB0390,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,209,272,8.2,3,77,low,873
+MB0304,"Mặt bằng Quận Ngô Quyền - Retail","Quận Ngô Quyền",retail,55,180,5.3,3,81,low,1316
+MB0230,"Mặt bằng Quận Thanh Khê - Office","Quận Thanh Khê",office,135,237,9.7,4,76,low,198
+MB0071,"Mặt bằng Quận 4 - Office","Quận 4",office,74,219,4.8,1,83,low,197
+MB0385,"Mặt bằng Thành phố Biên Hòa - Kiosk","Thành phố Biên Hòa",kiosk,124,175,4.4,2,72,low,1944
+MB0298,"Mặt bằng Quận Ngô Quyền - Shophouse","Quận Ngô Quyền",shophouse,136,271,9,2,86,low,2000
+MB0074,"Mặt bằng Quận Bình Thạnh - Office","Quận Bình Thạnh",office,183,254,6,4,84,low,295
+MB0112,"Mặt bằng Quận Hai Bà Trưng - Office","Quận Hai Bà Trưng",office,15,31,8.2,4,83,low,73
+MB0235,"Mặt bằng Quận Sơn Trà - Shophouse","Quận Sơn Trà",shophouse,184,276,5.2,4,91,low,1302
+MB0352,"Mặt bằng Thành phố Thủ Dầu Một - Kiosk","Thành phố Thủ Dầu Một",kiosk,127,291,4.1,1,70,low,1812
+MB0057,"Mặt bằng Quận 1 - Retail","Quận 1",retail,28,36,9.7,3,86,low,833
+MB0070,"Mặt bằng Quận 7 - Office","Quận 7",office,64,129,4.5,3,80,low,422
+MB0251,"Mặt bằng Quận Ninh Kiều - Shophouse","Quận Ninh Kiều",shophouse,84,236,4.7,2,85,low,1039
+MB0242,"Mặt bằng Quận Ninh Kiều - Retail","Quận Ninh Kiều",retail,104,145,9.3,2,60,low,1754
+MB0246,"Mặt bằng Quận Cái Răng - Kiosk","Quận Cái Răng",kiosk,74,177,5.2,4,84,low,285
+MB0160,"Mặt bằng Quận Tây Hồ - Office","Quận Tây Hồ",office,60,188,8.4,1,91,low,703
+MB0022,"Mặt bằng Quận 1 - Kiosk","Quận 1",kiosk,23,41,6.4,3,63,low,1106
+MB0003,"Mặt bằng Quận 1 - Shophouse","Quận 1",shophouse,22,39,9.2,2,65,low,952
+MB0118,"Mặt bằng Quận Đống Đa - Kiosk","Quận Đống Đa",kiosk,28,49,5.6,1,64,low,1524
+MB0191,"Mặt bằng Quận Tây Hồ - Office","Quận Tây Hồ",office,66,133,6.2,2,75,low,1656
+MB0346,"Mặt bằng Thành phố Thuận An - Office","Thành phố Thuận An",office,81,259,9.9,3,67,low,1567
+MB0366,"Mặt bằng Thành phố Biên Hòa - Shophouse","Thành phố Biên Hòa",shophouse,58,104,6.7,2,89,low,314
+MB0310,"Mặt bằng Quận Hồng Bàng - Office","Quận Hồng Bàng",office,111,217,4.4,3,87,low,1830
+MB0387,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,194,268,5.1,3,94,low,1178
+MB0333,"Mặt bằng Thành phố Thủ Dầu Một - Shophouse","Thành phố Thủ Dầu Một",shophouse,94,265,5.1,3,94,low,368
+MB0343,"Mặt bằng Thành phố Thủ Dầu Một - Office","Thành phố Thủ Dầu Một",office,129,185,6.3,3,83,low,978
+MB0241,"Mặt bằng Quận Ninh Kiều - Office","Quận Ninh Kiều",office,161,256,9.8,1,80,low,492
+MB0225,"Mặt bằng Quận Sơn Trà - Office","Quận Sơn Trà",office,143,255,6.8,1,63,low,623
+MB0255,"Mặt bằng Quận Ninh Kiều - Shophouse","Quận Ninh Kiều",shophouse,64,102,7.5,1,63,low,462
+MB0286,"Mặt bằng Quận Hồng Bàng - Kiosk","Quận Hồng Bàng",kiosk,150,285,5.6,1,75,low,303
+MB0069,"Mặt bằng Quận 3 - Retail","Quận 3",retail,72,223,7.8,3,68,low,889
+MB0253,"Mặt bằng Quận Ninh Kiều - Retail","Quận Ninh Kiều",retail,80,122,5.6,1,90,low,755
+MB0197,"Mặt bằng Quận Đống Đa - Kiosk","Quận Đống Đa",kiosk,71,94,8.7,3,70,low,1743
+MB0398,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,80,118,4.3,3,80,low,1061
+MB0224,"Mặt bằng Quận Sơn Trà - Retail","Quận Sơn Trà",retail,101,272,4.3,2,75,low,1781
+MB0394,"Mặt bằng Thành phố Biên Hòa - Kiosk","Thành phố Biên Hòa",kiosk,160,290,7.7,1,85,low,1742
+MB0004,"Mặt bằng Quận 7 - Kiosk","Quận 7",kiosk,86,108,7.4,2,85,low,136
+MB0152,"Mặt bằng Quận Ba Đình - Shophouse","Quận Ba Đình",shophouse,36,93,9.4,1,64,low,598
+MB0052,"Mặt bằng Quận Bình Thạnh - Kiosk","Quận Bình Thạnh",kiosk,118,191,8.2,4,75,low,756
+MB0379,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,45,131,5,4,94,low,779
+MB0353,"Mặt bằng Thành phố Thuận An - Shophouse","Thành phố Thuận An",shophouse,30,61,8.5,3,90,low,957
+MB0090,"Mặt bằng Quận 1 - Office","Quận 1",office,37,78,8.6,4,68,low,441
+MB0244,"Mặt bằng Quận Ninh Kiều - Kiosk","Quận Ninh Kiều",kiosk,125,198,4.5,2,65,low,1752
+MB0011,"Mặt bằng Quận 3 - Shophouse","Quận 3",shophouse,45,123,5.3,2,85,low,1954
+MB0348,"Mặt bằng Thành phố Thủ Dầu Một - Office","Thành phố Thủ Dầu Một",office,94,142,6.6,3,63,low,765
+MB0025,"Mặt bằng Quận 5 - Retail","Quận 5",retail,58,111,7.3,2,89,low,1443
+MB0106,"Mặt bằng Quận Hoàn Kiếm - Kiosk","Quận Hoàn Kiếm",kiosk,76,106,4.4,1,61,low,116
+MB0078,"Mặt bằng Quận 7 - Office","Quận 7",office,139,224,8.7,1,83,low,149
+MB0283,"Mặt bằng Quận Ngô Quyền - Retail","Quận Ngô Quyền",retail,204,257,7.8,1,77,low,1728
+MB0357,"Mặt bằng Thành phố Thủ Dầu Một - Office","Thành phố Thủ Dầu Một",office,23,31,7.1,4,95,low,1308
+MB0292,"Mặt bằng Quận Hồng Bàng - Shophouse","Quận Hồng Bàng",shophouse,58,136,6.9,3,78,low,875
+MB0181,"Mặt bằng Quận Ba Đình - Retail","Quận Ba Đình",retail,148,190,9.7,2,61,low,1832
+MB0376,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,88,151,9.7,1,73,low,1293
+MB0127,"Mặt bằng Quận Cầu Giấy - Kiosk","Quận Cầu Giấy",kiosk,33,58,5.5,1,73,low,1770
+MB0217,"Mặt bằng Quận Thanh Khê - Kiosk","Quận Thanh Khê",kiosk,71,91,6.1,3,83,low,1643
+MB0285,"Mặt bằng Quận Ngô Quyền - Kiosk","Quận Ngô Quyền",kiosk,136,221,8.1,3,72,low,313
+MB0093,"Mặt bằng Quận Bình Thạnh - Office","Quận Bình Thạnh",office,66,190,8.5,3,85,low,806
+MB0199,"Mặt bằng Quận Hoàn Kiếm - Retail","Quận Hoàn Kiếm",retail,169,214,9.7,1,62,low,1124
+MB0130,"Mặt bằng Quận Tây Hồ - Office","Quận Tây Hồ",office,74,155,8.5,1,83,low,1744
+MB0311,"Mặt bằng Quận Ngô Quyền - Retail","Quận Ngô Quyền",retail,27,59,7.2,1,89,low,1601
+MB0185,"Mặt bằng Quận Cầu Giấy - Office","Quận Cầu Giấy",office,30,42,6.8,3,60,low,79
+MB0391,"Mặt bằng Thành phố Biên Hòa - Kiosk","Thành phố Biên Hòa",kiosk,65,113,8,1,95,low,1134
+MB0239,"Mặt bằng Quận Sơn Trà - Shophouse","Quận Sơn Trà",shophouse,54,125,9.9,4,61,low,305
+MB0135,"Mặt bằng Quận Hoàn Kiếm - Retail","Quận Hoàn Kiếm",retail,72,154,6.5,2,82,low,1625
+MB0209,"Mặt bằng Quận Thanh Khê - Kiosk","Quận Thanh Khê",kiosk,191,273,9,3,88,low,1451
+MB0315,"Mặt bằng Quận Ngô Quyền - Retail","Quận Ngô Quyền",retail,31,87,7.8,4,95,low,1051
+MB0271,"Mặt bằng Quận Ninh Kiều - Office","Quận Ninh Kiều",office,133,206,6.4,2,70,low,379
+MB0195,"Mặt bằng Quận Cầu Giấy - Shophouse","Quận Cầu Giấy",shophouse,47,79,7.7,2,68,low,519
+MB0189,"Mặt bằng Quận Hai Bà Trưng - Kiosk","Quận Hai Bà Trưng",kiosk,84,201,9.7,1,85,low,1687
+MB0068,"Mặt bằng Thành phố Thủ Đức - Retail","Thành phố Thủ Đức",retail,36,65,7.6,3,95,low,737
+MB0232,"Mặt bằng Quận Hải Châu - Office","Quận Hải Châu",office,36,46,4,1,93,low,749
+MB0378,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,36,112,4.3,1,63,low,523
+MB0288,"Mặt bằng Quận Ngô Quyền - Kiosk","Quận Ngô Quyền",kiosk,49,158,9.6,3,88,low,1449
+MB0281,"Mặt bằng Quận Ngô Quyền - Retail","Quận Ngô Quyền",retail,49,85,4.5,2,85,low,1097
+MB0184,"Mặt bằng Quận Đống Đa - Kiosk","Quận Đống Đa",kiosk,75,143,6,1,70,low,1227
+MB0174,"Mặt bằng Quận Cầu Giấy - Kiosk","Quận Cầu Giấy",kiosk,76,245,5.9,3,86,low,196
+MB0159,"Mặt bằng Quận Tây Hồ - Retail","Quận Tây Hồ",retail,114,250,7,3,84,low,1794
+MB0332,"Mặt bằng Thành phố Thuận An - Kiosk","Thành phố Thuận An",kiosk,24,47,4.2,3,65,low,1545
+MB0370,"Mặt bằng Thành phố Biên Hòa - Retail","Thành phố Biên Hòa",retail,117,195,4.2,4,93,low,279
+MB0275,"Mặt bằng Quận Cái Răng - Office","Quận Cái Răng",office,80,148,5.3,2,94,low,633
+MB0287,"Mặt bằng Quận Ngô Quyền - Retail","Quận Ngô Quyền",retail,49,147,9.2,2,79,low,1156
+MB0149,"Mặt bằng Quận Hai Bà Trưng - Office","Quận Hai Bà Trưng",office,51,167,9.7,4,78,low,965
+MB0382,"Mặt bằng Thành phố Biên Hòa - Office","Thành phố Biên Hòa",office,147,192,5.4,2,91,low,767
+MB0269,"Mặt bằng Quận Cái Răng - Retail","Quận Cái Răng",retail,46,67,9.2,2,95,low,688
+MB0039,"Mặt bằng Quận 5 - Retail","Quận 5",retail,164,212,5.2,2,72,low,705
+MB0117,"Mặt bằng Quận Tây Hồ - Shophouse","Quận Tây Hồ",shophouse,116,195,7.4,4,74,low,1918
+MB0303,"Mặt bằng Quận Hồng Bàng - Office","Quận Hồng Bàng",office,89,129,6.3,3,76,low,1789
+MB0043,"Mặt bằng Quận Bình Thạnh - Office","Quận Bình Thạnh",office,99,205,9.8,1,92,low,91

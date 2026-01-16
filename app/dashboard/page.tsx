@@ -1,21 +1,54 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { LayoutDashboard, Users, TrendingUp, DollarSign, Activity, PieChart, BarChart, MapPin, Building2, Store, Briefcase, Loader2 } from 'lucide-react';
+import { LayoutDashboard, Users, TrendingUp, DollarSign, Activity, PieChart, BarChart, MapPin, Building2, Store, Briefcase, Loader2, Filter } from 'lucide-react';
 import { fetchStats, Stats } from '@/lib/api';
 
 export default function Dashboard() {
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedDistrict, setSelectedDistrict] = useState("");
+
+  // Dynamic Location Data
+  const [districtsMap, setDistrictsMap] = useState<Record<string, string[]>>({});
+  const [citiesList, setCitiesList] = useState<string[]>([]);
 
   useEffect(() => {
-    fetchStats().then(data => {
-      setStats(data);
-      setLoading(false);
-    });
+    // Load Distrcts on Mount
+    const loadDistricts = async () => {
+      try {
+        const { fetchDistricts } = await import('@/lib/api');
+        const data = await fetchDistricts();
+        setDistrictsMap(data);
+        setCitiesList(Object.keys(data));
+      } catch (e) {
+        console.error("Failed to load districts", e);
+      }
+    };
+    loadDistricts();
   }, []);
 
-  if (loading) {
+  const loadStats = async () => {
+    setLoading(true);
+    const data = await fetchStats({
+      city: selectedCity || undefined,
+      district: selectedDistrict || undefined
+    });
+    setStats(data);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    loadStats();
+  }, [selectedCity, selectedDistrict]);
+
+  const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCity(e.target.value);
+    setSelectedDistrict(""); // Reset district when city changes
+  };
+
+  if (loading && !stats) {
     return (
       <div className="min-h-screen pt-24 flex items-center justify-center">
         <div className="text-center">
@@ -56,21 +89,48 @@ export default function Dashboard() {
     <div className="min-h-screen pt-24 pb-20 px-8 text-white font-sans">
       <div className="max-w-7xl mx-auto space-y-10">
 
-        {/* Header */}
-        <header className="flex justify-between items-end border-b border-white/10 pb-8">
-          <div>
-            <h1 className="text-4xl font-black mb-2 flex items-center gap-3">
-              <LayoutDashboard className="w-8 h-8 text-cyan-400" />
-              JFinder Dashboard
-            </h1>
-            <p className="text-gray-400">Real-time analytics from {stats.total.toLocaleString()} listings across Hanoi.</p>
-          </div>
-          <div className="flex gap-4">
-            <div className="text-right">
-              <div className="text-xs text-gray-500 uppercase font-bold tracking-widest">Data Source</div>
-              <div className="text-cyan-400 font-bold flex items-center justify-end gap-2">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> n8n API Live
+        {/* Header with Filters */}
+        <header className="border-b border-white/10 pb-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+            <div>
+              <h1 className="text-4xl font-black mb-2 flex items-center gap-3">
+                <LayoutDashboard className="w-8 h-8 text-cyan-400" />
+                JFinder Dashboard
+              </h1>
+              <p className="text-gray-400">
+                Thống kê thị trường tại <span className="text-cyan-300 font-semibold">{selectedCity || 'Toàn Quốc'}</span> {selectedDistrict && ` - ${selectedDistrict}`}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-4 items-center bg-white/5 p-4 rounded-2xl border border-white/5">
+              <div className="flex items-center gap-2 text-cyan-400 font-bold uppercase text-xs tracking-widest">
+                <Filter className="w-4 h-4" /> Bộ lọc
               </div>
+
+              {/* City Selector */}
+              <select
+                value={selectedCity}
+                onChange={handleCityChange}
+                className="bg-[#0f172a] border border-white/20 text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block p-2.5 min-w-[180px]"
+              >
+                <option value="">Tất cả thành phố</option>
+                {citiesList.map(city => (
+                  <option key={city} value={city}>{city}</option>
+                ))}
+              </select>
+
+              {/* District Selector */}
+              <select
+                value={selectedDistrict}
+                onChange={(e) => setSelectedDistrict(e.target.value)}
+                className="bg-[#0f172a] border border-white/20 text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block p-2.5 min-w-[150px]"
+                disabled={!districtsMap[selectedCity]}
+              >
+                <option value="">Tất cả Quận/Huyện</option>
+                {districtsMap[selectedCity]?.map(dist => (
+                  <option key={dist} value={dist}>{dist}</option>
+                ))}
+              </select>
             </div>
           </div>
         </header>
@@ -105,24 +165,30 @@ export default function Dashboard() {
           <div className="glass-card p-6 rounded-2xl border border-white/10 col-span-2">
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
               <BarChart className="w-5 h-5 text-blue-400" />
-              Phân bố theo Quận (từ n8n API)
+              {selectedCity ? 'Phân bố theo Khu vực' : 'Phân bố theo Thành phố'}
             </h3>
-            <div className="space-y-3">
-              {topDistricts.map(([district, count], idx) => (
-                <div key={district} className="flex items-center gap-3">
-                  <div className="w-24 text-sm text-gray-400 truncate">{district}</div>
-                  <div className="flex-1 h-8 bg-slate-800 rounded-lg overflow-hidden relative">
-                    <div
-                      className="h-full bg-gradient-to-r from-cyan-600 to-blue-500 rounded-lg transition-all duration-500"
-                      style={{ width: `${(count / topDistricts[0][1]) * 100}%` }}
-                    />
-                    <div className="absolute inset-0 flex items-center justify-between px-3">
-                      <span className="text-xs font-bold text-white">{count}</span>
+            {topDistricts.length > 0 ? (
+              <div className="space-y-3">
+                {topDistricts.map(([district, count], idx) => (
+                  <div key={district} className="flex items-center gap-3">
+                    <div className="w-32 text-sm text-gray-400 truncate text-right">{district}</div>
+                    <div className="flex-1 h-8 bg-slate-800 rounded-lg overflow-hidden relative">
+                      <div
+                        className="h-full bg-gradient-to-r from-cyan-600 to-blue-500 rounded-lg transition-all duration-500"
+                        style={{ width: `${(count / topDistricts[0][1]) * 100}%` }}
+                      />
+                      <div className="absolute inset-0 flex items-center justify-between px-3">
+                        <span className="text-xs font-bold text-white shadow-black drop-shadow-md">{count}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex items-center justify-center h-40 text-gray-500 italic">
+                Chưa có dữ liệu cho khu vực này
+              </div>
+            )}
           </div>
 
           {/* Type Distribution Pie */}
@@ -132,7 +198,7 @@ export default function Dashboard() {
               Loại Mặt Bằng
             </h3>
             <div className="space-y-4">
-              {Object.entries(stats.byType).map(([type, count]) => {
+              {Object.entries(stats.byType).length > 0 ? Object.entries(stats.byType).map(([type, count]) => {
                 const percent = ((count / stats.total) * 100).toFixed(1);
                 const colors: Record<string, string> = {
                   shophouse: 'bg-cyan-500',
@@ -142,8 +208,8 @@ export default function Dashboard() {
                 };
                 return (
                   <div key={type} className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg ${colors[type]}/20`}>
-                      {typeIcons[type]}
+                    <div className={`p-2 rounded-lg ${colors[type] || 'bg-gray-500'}/20`}>
+                      {typeIcons[type] || <Building2 className="w-5 h-5" />}
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between text-sm mb-1">
@@ -151,12 +217,14 @@ export default function Dashboard() {
                         <span className="font-bold text-white">{count}</span>
                       </div>
                       <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                        <div className={`h-full ${colors[type]} rounded-full`} style={{ width: `${percent}%` }} />
+                        <div className={`h-full ${colors[type] || 'bg-gray-500'} rounded-full`} style={{ width: `${percent}%` }} />
                       </div>
                     </div>
                   </div>
                 );
-              })}
+              }) : (
+                <div className="text-center text-gray-500 py-4">Không có dữ liệu</div>
+              )}
             </div>
           </div>
         </div>
