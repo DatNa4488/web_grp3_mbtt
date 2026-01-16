@@ -146,8 +146,6 @@ export default async function ListingDetailPage(props: { params: Promise<{ id: s
               </div>
             </div>
 
-            {/* Geo Analysis */}
-            <LocationAnalytics district={listing.district} />
 
             {/* Reviews */}
             <ReviewSection listingId={id} reviews={listing.reviews} currentUser={session?.user} />
