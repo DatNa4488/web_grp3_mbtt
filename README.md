@@ -1,201 +1,135 @@
-# JFinder - Smart Rental Decision Support System 🏢✨
+# JFinder - Hệ Thống Hỗ Trợ Quyết Định Thuê Mặt Bằng Kinh Doanh 🏢
 
-Hệ thống hỗ trợ quyết định tìm kiếm mặt bằng cho thuê thông minh.
+**JFinder** là nền tảng Bất động sản thương mại (Commercial Real Estate) thế hệ mới, tích hợp **Big Data** và **AI (Trí tuệ nhân tạo)** để giúp chủ doanh nghiệp tìm kiếm, đánh giá và định giá mặt bằng kinh doanh chính xác nhất.
 
----
-
-## 🎯 Mục tiêu
-
-Chuyển đổi từ **"Tìm kiếm thụ động"** sang **"Tư vấn chủ động"**:
-- Trả lời câu hỏi: *"Tại sao tôi nên thuê chỗ này?"*
-- Kết hợp **BI**, **Geo-marketing** và **AI định giá**
+![JFinder Dashboard](/app/opengraph-image.png)
 
 ---
 
-## 🏗️ Kiến trúc hệ thống
+## 🌟 Tính Năng Nổi Bật
 
+### 1. 🤖 Định Giá AI (AI Valuation)
+-   Sử dụng mô hình **Deep Learning (TensorFlow.js)** kết hợp với logic thị trường để dự báo giá thuê hợp lý.
+-   Phân tích dựa trên: Vị trí (Quận/Huyện), Diện tích, Mặt tiền, Số tầng.
+-   Tích hợp qua **n8n Webhook** để xử lý tính toán.
+
+### 2. 📊 Phân Tích ROI (ROI Calculator)
+-   Công cụ tính toán **Lợi nhuận đầu tư (ROI)** và **Điểm hòa vốn** tự động.
+-   Giúp người thuê ước tính doanh thu, chi phí vận hành và lợi nhuận ròng trước khi xuống tiền.
+
+### 3. 🗺️ Dashboard Thị Trường (Real-time)
+-   Thống kê trực quan về thị trường BĐS tại 7 thành phố lớn (Hà Nội, TP.HCM, Đà Nẵng, Cần Thơ, Hải Phòng, Bình Dương, Đồng Nai).
+-   Biểu đồ phân bố giá, diện tích và loại hình (Shophouse, Office, Retail...).
+-   Dữ liệu được cập nhật động từ API.
+
+### 4. 🏙️ Tìm Kiếm Thông Minh
+-   Bộ lọc chi tiết: Thành phố, Quận/Huyện, Mức giá, Diện tích.
+-   Hiển thị trực quan với bản đồ và hình ảnh thực tế.
+
+---
+
+## 🛠️ Công Nghệ Sử Dụng (Tech Stack)
+
+-   **Frontend**: [Next.js 15](https://nextjs.org/) (App Router), React, TailwindCSS.
+-   **Backend / API**: [n8n](https://n8n.io/) (Workflow Automation), Next.js Server Actions.
+-   **Database**: PostgreSQL (với PostGIS cho bản đồ).
+-   **AI/ML**: TensorFlow.js, Neural Networks.
+-   **DevOps**: Docker, Docker Compose.
+
+---
+
+## 🚀 Hướng Dẫn Cài Đặt & Chạy Dự Án
+
+### 1. Yêu cầu hệ thống
+-   **Node.js** (v18+)
+-   **Docker Desktop** (Để chạy PostgreSQL & n8n)
+-   **Git**
+
+### 2. Cài đặt Source Code
+
+B1. Clone dự án:
+```bash
+git clone https://github.com/jian131/grp3_mbtt.git
+cd grp3_mbtt
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                 FRONTEND (Next.js :3000)                     │
-│  • Tìm kiếm  • Heatmap  • AI Analysis  • Dashboard           │
-└────────────────────────┬─────────────────────────────────────┘
-                         │ REST API
-                         ▼
-┌──────────────────────────────────────────────────────────────┐
-│               BACKEND API (n8n :5678)                        │
-│  • /webhook/listings  • /webhook/stats  • /webhook/valuation │
-└──────────────────────────────────────────────────────────────┘
 
-┌──────────────────────────────────────────────────────────────┐
-│            BI DASHBOARD (Apache Superset :8088)              │
-│  • Custom Charts  • SQL Lab  • Data Visualization            │
-└──────────────────────────────────────────────────────────────┘
+B2. Cài đặt thư viện:
+```bash
+npm install
 ```
 
----
+### 3. Cấu hình Môi trường (.env)
 
-## ✅ Tính năng
+Copy file mẫu và cấu hình:
+```bash
+cp .env.example .env
+```
+*Lưu ý: Nếu bạn chạy n8n trên server riêng, hãy cập nhật `NEXT_PUBLIC_N8N_URL` trong file `.env`.*
 
-| Chức năng | Mô tả | Tech Stack |
-|-----------|-------|------------|
-| **Tìm Kiếm Mặt Bằng** | Form filter + Grid results | Next.js + n8n API |
-| **Heatmap (Bản đồ nhiệt)** | Giá/Tiềm năng trên bản đồ | React Leaflet |
-| **AI Định giá** | Gợi ý giá thuê hợp lý | n8n Workflow (JS Code) |
-| **ROI Calculator** | Tính break-even point | n8n API |
-| **Dashboard BI** | Biểu đồ phân tích chuyên sâu | **Apache Superset** |
-| **Landlord Portal** | Công cụ định giá cho chủ nhà | Next.js |
-| **Statistics** | Thống kê thị trường | n8n API |
+### 4. Khởi chạy Database & Services (Docker)
 
----
-
-## 🚀 Cài đặt & Chạy
-
-### 1. Yêu cầu
-- Node.js 18+
-- Docker Desktop
-- Python 3.10+ (cho scripts)
-
-### 2. Khởi động Backend (n8n + Superset)
 ```bash
 docker-compose up -d
 ```
+*Lệnh này sẽ bật PostgreSQL, n8n và các dịch vụ phụ trợ.*
 
-### 3. Cấu hình Superset (chạy 1 lần)
-```powershell
-.\setup_superset.ps1
+### 5. Khởi tạo Dữ liệu (Quan trọng)
+
+Để app hoạt động đúng, bạn cần làm các bước sau:
+
+**B1. Tạo bảng Database:**
+```bash
+npx prisma db push
 ```
 
-### 4. Import n8n Workflow
-1. Mở `http://localhost:5678` (admin/admin)
-2. Menu → Import from File → Chọn `n8n_backend.json`
-3. **Bật workflow** (Toggle ON ở góc phải)
-
-### 5. Chạy Frontend
+**B2. Sinh dữ liệu giả lập (Mock Data):**
+Script này sẽ tạo 400 tin đăng rải đều 7 thành phố và xáo trộn ngẫu nhiên.
 ```bash
-npm install
+node generate_multicity_data.js
+```
+
+**B3. Nạp dữ liệu vào Database:**
+```bash
+npx prisma db seed
+```
+
+### 6. Khởi chạy Ứng dụng Web
+
+```bash
 npm run dev
 ```
-
-### 6. Export dữ liệu cho Superset (tùy chọn)
-```bash
-python scripts/export_to_superset.py
-```
+Truy cập: **http://localhost:3000**
 
 ---
 
-## 🔗 Truy cập hệ thống
+## 🔌 Cấu Hình n8n (Workflow Integration)
 
-| Service | URL | Đăng nhập |
-|---------|-----|-----------|
-| **JFinder Web** | http://localhost:3000 | - |
-| **n8n Backend** | http://localhost:5678 | admin / admin |
-| **Superset BI** | http://localhost:8088 | admin / admin |
+Dự án sử dụng **n8n** làm Backend xử lý Logic. Bạn cần Import workflow vào n8n:
 
----
-
-## 📁 Cấu trúc dự án
-
-```
-grp3_mbtt/
-├── app/                          # Next.js Pages
-│   ├── page.tsx                 # Home
-│   ├── search/                  # 🔍 Tìm kiếm mặt bằng (NEW)
-│   ├── map/                     # 🗺️ Heatmap
-│   ├── analysis/                # 🤖 AI Analysis + ROI
-│   ├── landlord/                # 💰 Định giá cho chủ nhà
-│   ├── dashboard/               # 📊 Dashboard thống kê
-│   └── bi-dashboard/            # 📈 Superset BI (NEW)
-├── components/
-│   ├── Map/                     # Heatmap component
-│   └── Analysis/                # Valuation card
-├── lib/
-│   └── api.ts                   # API Helper (n8n proxy)
-├── scripts/
-│   ├── export_to_superset.py    # Export data to CSV
-│   └── ...
-├── data/
-│   ├── superset_listings.csv    # Data for Superset
-│   └── jfinder_listings.csv     # Static data
-├── n8n_backend.json             # 🔧 n8n Workflow chính
-├── docker-compose.yml           # Docker config
-├── setup_superset.ps1           # Superset setup script
-└── README.md
-```
+1.  Truy cập n8n: `http://localhost:5678`
+2.  Tạo mới Workflow.
+3.  Copy nội dung file `n8n/workflow.json` (nếu có) hoặc tự cấu hình các node:
+    -   `POST /valuation`
+    -   `POST /roi`
+    -   `GET /districts`
+    -   `GET /listings`
+    -   `GET /stats`
 
 ---
 
-## 🔌 n8n API Endpoints
+## ⚠️ Troubleshooting (Lỗi thường gặp)
 
-| Endpoint | Method | Mô tả |
-|----------|--------|-------|
-| `/webhook/listings` | GET | Danh sách mặt bằng (filter: district, type, maxPrice) |
-| `/webhook/stats` | GET | Thống kê tổng hợp |
-| `/webhook/districts` | GET | Danh sách quận + giá TB |
-| `/webhook/valuation` | POST | AI định giá |
-| `/webhook/roi` | POST | Tính ROI |
+**1. Không thấy dữ liệu Quận/Huyện trên Dashboard?**
+-   Kiểm tra n8n đã chạy chưa (`docker ps`).
+-   Kiểm tra `NEXT_PUBLIC_N8N_URL` trong `.env`.
+-   Nếu n8n chết, hệ thống sẽ tự dùng dữ liệu backup (nhưng cần reload trang).
 
-**Lưu ý**: Frontend gọi qua proxy `/api/n8n/*` để tránh CORS.
+**2. Lỗi `PrismaClientInitializationError`?**
+-   Database chưa sẵn sàng. Hãy đợi 1-2 phút sau khi chạy `docker-compose up`.
 
----
-
-## 📊 Sử dụng Superset
-
-### Quick Start:
-1. Truy cập `http://localhost:8088` (admin/admin)
-2. **Data → Datasets → +Dataset**
-3. Chọn database: **Google Sheets** (đã cài driver)
-4. Paste Google Sheet URL hoặc upload CSV từ `data/superset_listings.csv`
-5. **Charts → +Chart** → Chọn dataset → Chọn loại biểu đồ
-6. **Dashboards → +Dashboard** → Kéo thả charts vào
-
-### Export data mới từ n8n:
-```bash
-python scripts/export_to_superset.py
-```
-
-File sẽ được lưu tại `data/superset_listings.csv`.
+**3. Ảnh không hiển thị?**
+-   Chạy script tải ảnh mẫu: `npx ts-node scripts/setupLocalImages.ts` (nếu có) hoặc kiểm tra folder `public/mock`.
 
 ---
 
-## 🔧 Troubleshooting
-
-### Lỗi "Failed to fetch" ở Frontend
-**Nguyên nhân**: n8n chưa chạy hoặc workflow chưa Active.
-
-**Giải pháp**:
-1. Kiểm tra Docker: `docker ps` (phải thấy container n8n)
-2. Vào n8n UI → Bật workflow ON
-3. Restart Next.js: `Ctrl+C` → `npm run dev`
-
-### Superset không hiển thị
-**Nguyên nhân**: Container chưa khởi động hoàn toàn (mất 1-2 phút).
-
-**Giải pháp**:
-```bash
-docker-compose restart superset
-```
-
-### CORS Error
-Đã giải quyết bằng Next.js proxy (`rewrites` trong `next.config.ts`).
-
----
-
-## 👥 Đối tượng sử dụng
-
-1. **Người thuê**: Tìm mặt bằng, xem phân tích tiềm năng
-2. **Chủ cho thuê**: Định giá tài sản thông minh
-3. **Quản trị viên**: Dashboard BI, phân tích xu hướng
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend**: Next.js 15, React, TypeScript, Tailwind CSS
-- **Backend API**: n8n (Low-code Automation)
-- **BI Dashboard**: Apache Superset
-- **Map**: React Leaflet
-- **Containerization**: Docker Compose
-
----
-
-**Developed by Group 3 - MBTT @ Đại học Thủy Lợi**
+**© 2026 JFinder Team - Capstone Project**
