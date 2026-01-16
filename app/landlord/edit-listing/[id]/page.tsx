@@ -1,5 +1,6 @@
 
 import { auth } from '@/auth';
+import EditListingClientForm from './EditListingClientForm';
 import { prisma } from '@/lib/prisma';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
@@ -24,7 +25,7 @@ export default async function EditListingPage(props: { params: Promise<{ id: str
         redirect('/landlord');
     }
 
-    const updateListingWithId = updateListing.bind(null, id);
+    const updateListingWithId = updateListing.bind(null, id, null);
 
     return (
         <div className="min-h-screen pt-24 pb-20 px-4 md:px-8 bg-slate-950">
@@ -37,7 +38,7 @@ export default async function EditListingPage(props: { params: Promise<{ id: str
                     <h1 className="text-3xl font-bold text-white mb-2">Chỉnh Sửa Tin Đăng</h1>
                     <p className="text-gray-400 mb-8">Cập nhật thông tin chi tiết cho mặt bằng của bạn.</p>
 
-                    <form action={updateListingWithId} className="space-y-6">
+                    <form action={updateListingWithId as any} className="space-y-6">
                         {/* Title */}
                         <div>
                             <label className="block text-sm font-bold text-gray-300 mb-2">Tiêu đề tin đăng *</label>
@@ -72,5 +73,4 @@ export default async function EditListingPage(props: { params: Promise<{ id: str
     );
 }
 
-// Separate Client Component for the Form to handle State
-import EditListingClientForm from './EditListingClientForm';
+

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import L from 'leaflet';
+import L, { Marker } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 // Fix for default marker icons in Leaflet
@@ -29,7 +29,7 @@ export default function LeafletMap({ points, onMarkerClick }: LeafletMapProps) {
     }).addTo(map);
 
     // Thêm markers
-    const markers: L.Marker[] = [];
+    const markers: any[] = [];
     points.forEach((point) => {
       if (point.lat && point.lng) {
         // Tạo custom icon với màu tím

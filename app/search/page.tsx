@@ -87,9 +87,9 @@ export default function SearchPage() {
   // Filter listings by Radius & Amenities (Client-side logic)
   const filteredListings = listings.filter(listing => {
     // 1. Radius Filter (if user location is set)
-    if (userLocation && listing.lat && listing.lng) {
+    if (userLocation && listing.lat && listing.lon) {
       const from = turf.point([userLocation.lng, userLocation.lat]);
-      const to = turf.point([listing.lng, listing.lat]);
+      const to = turf.point([listing.lon, listing.lat]);
       const distance = turf.distance(from, to, { units: 'kilometers' });
       if (distance > radius) return false;
     }

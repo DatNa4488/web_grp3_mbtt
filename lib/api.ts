@@ -91,7 +91,6 @@ function normalizeListing(item: any): Listing {
       suggestedPrice: item.ai?.suggestedPrice || item.ai_suggested_price || 0,
       potentialScore: item.ai?.potentialScore || item.ai_potential_score || 50,
       riskLevel: item.ai?.riskLevel || item.ai_risk_level || 'medium',
-      riskLevel: item.ai?.riskLevel || item.ai_risk_level || 'medium',
       priceLabel: item.ai?.priceLabel || 'fair'
     },
     owner: item.owner || undefined
@@ -122,7 +121,7 @@ export async function fetchListings(params?: SearchParams): Promise<Listing[]> {
     if (res && res.ok) {
       const json = await res.json();
       if (json.success) {
-        let data = json.data.map(normalizeListing);
+        let data: Listing[] = json.data.map(normalizeListing);
 
         // Client-side filtering with robust normalization
         if (params?.city || params?.province) {
@@ -157,7 +156,7 @@ export async function fetchListings(params?: SearchParams): Promise<Listing[]> {
     console.warn('API Error/Timeout (listings). Using Mock Data.');
 
     // Filter Mock Data
-    let data = mockListings.map(normalizeListing);
+    let data: Listing[] = mockListings.map(normalizeListing);
 
     if (params?.city || params?.province) {
       const p = (params.city || params.province || '').toLowerCase();
@@ -269,7 +268,7 @@ export async function fetchStats(filters?: { city?: string; district?: string })
     // console.error('API Error (stats):', error);
 
     // Dynamic Mock Calculation
-    let filteredData = mockListings.map(normalizeListing);
+    let filteredData: Listing[] = mockListings.map(normalizeListing);
 
     if (filters?.city) {
       filteredData = filteredData.filter(l => l.province === filters.city || l.city === filters.city);

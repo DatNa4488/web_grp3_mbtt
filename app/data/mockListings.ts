@@ -38,7 +38,7 @@ export interface Listing {
   };
 }
 
-export const mockListings: Listing[] = listingsData as Listing[];
+export const mockListings: Listing[] = listingsData as unknown as Listing[];
 
 // Hàm lấy màu cho Heatmap dựa trên giá
 export const getPriceColor = (price: number): string => {
